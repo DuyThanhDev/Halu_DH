@@ -1,6 +1,7 @@
 import type React from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Header2 from "../../components/Header2";
 
 const About: React.FC = () => {
   return (
@@ -17,6 +18,8 @@ const About: React.FC = () => {
         />
       </section>
 
+      {/* Header2 */ <Header2 />}
+      
       {/* Content Section */}
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
@@ -28,7 +31,7 @@ const About: React.FC = () => {
               NPFOOD - Sản phẩm dinh dưỡng và thuần khiết
             </h4>
 
-            <div className="space-y-6 text-gray-700 leading-relaxed">
+            <div className="space-y-8 text-gray-700 leading-relaxed text-lg text-justify">
               <p>
                 <span className="font-semibold">Công ty TNHH NPFOOD</span> Việt
                 Nam được thành lập từ năm 2015 chuyên sản xuất các sản phẩm thực
@@ -65,7 +68,7 @@ const About: React.FC = () => {
                 hàng hơn.
               </p>
 
-              <p className="font-semibold text-lg">Trân trọng!</p>
+              <p className="text-xl">Trân trọng!</p>
             </div>
           </div>
         </div>

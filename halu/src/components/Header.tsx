@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -23,12 +31,20 @@ const Header: React.FC = () => {
         </a>
       </div>
       <nav className="hidden md:flex items-center gap-0 text-lg font-medium mr-20">
-        <a href="#" className="text-white hover:text-green-200 px-3">
+        <Link
+          to="/"
+          onClick={scrollToTop}
+          className="text-white hover:text-green-200 px-3"
+        >
           TRANG CHỦ
-        </a>
-        <a href="#" className="text-white hover:text-green-200 px-3">
+        </Link>
+        <Link
+          to="/about"
+          onClick={scrollToTop}
+          className="text-white hover:text-green-200 px-3"
+        >
           VỀ CHÚNG TÔI
-        </a>
+        </Link>
         <a href="#" className="text-white hover:text-green-200 px-3">
           SẢN PHẨM
         </a>
