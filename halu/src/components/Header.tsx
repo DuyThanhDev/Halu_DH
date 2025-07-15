@@ -51,9 +51,13 @@ const Header: React.FC = () => {
         <a href="#" className="text-white hover:text-green-200 px-3">
           TIN TỨC
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-3">
+        <Link
+          to="/contact"
+          onClick={scrollToTop}
+          className="text-white hover:text-green-200 px-3"
+        >
           LIÊN HỆ
-        </a>
+        </Link>
         <div className="flex items-center gap-4">
           <button
             className="p-2 rounded-full hover:bg-green-700 text-white"

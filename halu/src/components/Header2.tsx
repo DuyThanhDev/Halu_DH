@@ -8,11 +8,11 @@ const Header2: React.FC = () => {
   const getPageTitle = (pathname: string): string | null => {
     switch (pathname) {
       case "/about":
-        return "Giới thiệu";
+        return "GIỚI THIỆU";
       case "/products":
         return "Sản phẩm";
       case "/contact":
-        return "Liên hệ";
+        return "LIÊN HỆ";
       default:
         return null;
     }
