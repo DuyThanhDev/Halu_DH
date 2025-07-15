@@ -23,19 +23,19 @@ const Header: React.FC = () => {
         </a>
       </div>
       <nav className="hidden md:flex items-center gap-0 text-lg font-medium mr-20">
-        <a href="#" className="text-white hover:text-green-200 px-2">
+        <a href="#" className="text-white hover:text-green-200 px-3">
           TRANG CHỦ
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-2">
+        <a href="#" className="text-white hover:text-green-200 px-3">
           VỀ CHÚNG TÔI
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-2">
+        <a href="#" className="text-white hover:text-green-200 px-3">
           SẢN PHẨM
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-2">
+        <a href="#" className="text-white hover:text-green-200 px-3">
           TIN TỨC
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-2">
+        <a href="#" className="text-white hover:text-green-200 px-3">
           LIÊN HỆ
         </a>
         <div className="flex items-center gap-4">
