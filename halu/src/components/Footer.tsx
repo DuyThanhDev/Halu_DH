@@ -3,7 +3,7 @@ import logoNpfood from "../assets/logo-npfood_xanh-01.png";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-green-700 text-white">
+    <footer className="bg-[#77b843] text-white">
       <div className="container mx-auto px-4 md:px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-4">
           <h3 className="text-3xl font-bold text-center">Thông tin liên hệ</h3>
@@ -42,11 +42,11 @@ const Footer: React.FC = () => {
 
         <div className="space-y-3 md:text-left flex flex-col items-center center">
           <div className="flex items-center gap-2 justify-center md:justify-start">
-            <span className="text-3xl font-bold text-white">Liên kết với</span>
+            <span className="text-4xl font-bold text-white">Liên kết với</span>
             <img
               src={logoNpfood}
               alt="NPFOOD Logo"
-              className="h-12"
+              className="h-16"
               style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>

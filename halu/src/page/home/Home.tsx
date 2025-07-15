@@ -215,7 +215,7 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={handleLearnMore}
-              className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors"
+              className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-[#77b843] transition-colors"
             >
               TÌM HIỂU THÊM
             </button>
@@ -229,7 +229,7 @@ const Home: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
             SẢN PHẨM NỔI BẬT
           </h2>
-          <div className="w-24 h-1 bg-green-700 mx-auto mb-10" />
+          <div className="w-24 h-1 bg-[#77b843] mx-auto mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
               <div className="h-80 flex items-center justify-center mb-4">
@@ -278,7 +278,7 @@ const Home: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 bg-green-600 hover:bg-[#77b843] text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
           aria-label="Scroll to top"
         >
           <svg

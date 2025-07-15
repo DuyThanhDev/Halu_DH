@@ -18,16 +18,17 @@ const About: React.FC = () => {
         />
       </section>
 
-      {/* Header2 */ <Header2 />}
-      
+      {/* Header2 */}
+      <Header2 />
+
       {/* Content Section */}
       <section className="py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-center text-green-600">
+            <h1 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
               Giới thiệu
             </h1>
-            <h4 className="text-3xl md:text-4xl font-bold text-amber-800 mb-8 drop-shadow-lg">
+            <h4 className="text-2xl md:text-3xl font-bold text-amber-800 mb-8 drop-shadow-lg">
               NPFOOD - Sản phẩm dinh dưỡng và thuần khiết
             </h4>
 
@@ -68,7 +69,7 @@ const About: React.FC = () => {
                 hàng hơn.
               </p>
 
-              <p className="text-xl">Trân trọng!</p>
+              <p className="text-xl font-semibold">Trân trọng!</p>
             </div>
           </div>
         </div>

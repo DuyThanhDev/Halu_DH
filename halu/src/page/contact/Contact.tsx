@@ -46,7 +46,9 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Contact Information */}
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-green-600 mb-8">Liên hệ</h2>
+            <h1 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
+              Liên hệ
+            </h1>
             <div className="flex flex-col md:flex-row items-start justify-between gap-8">
               {/* Logo */}
               <div className="flex-shrink-0">
@@ -61,32 +63,32 @@ const Contact: React.FC = () => {
               {/* Thông tin */}
               <div className="flex-1 space-y-3 text-gray-700">
                 <div className="flex items-start gap-3">
-                  <HomeOutlined className="text-green-600 mt-1 text-lg" />
+                  <HomeOutlined className="text-[#77b843] mt-1 text-lg" />
                   <span>
                     23A, đường số 45, ấp Tân Thạnh, xã Tân Thông Hội, huyện Củ
                     Chi, TPHCM, Việt Nam
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <BuildOutlined className="text-green-600 mt-1 text-lg" />
+                  <BuildOutlined className="text-[#77b843] mt-1 text-lg" />
                   <span>
                     Văn phòng giao dịch : 362 Hòa Hảo, Phường 5, Quận 10, TPHCM
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <PhoneOutlined className="text-green-600 text-lg" />
+                  <PhoneOutlined className="text-[#77b843] text-lg" />
                   <span>Điện thoại: 028.39225005</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MailOutlined className="text-green-600 text-lg" />
+                  <MailOutlined className="text-[#77b843] text-lg" />
                   <span>Email: info@npfood.com.vn</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <GlobalOutlined className="text-green-600 text-lg" />
+                  <GlobalOutlined className="text-[#77b843] text-lg" />
                   <span>Website: www.npfood.com.vn</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <IdcardOutlined className="text-green-600 text-lg" />
+                  <IdcardOutlined className="text-[#77b843] text-lg" />
                   <span>MST: 031 229 1509</span>
                 </div>
               </div>
@@ -94,7 +96,7 @@ const Contact: React.FC = () => {
               <div className="flex-shrink-0">
                 <button
                   onClick={scrollToMap}
-                  className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center gap-2"
+                  className="bg-[#77b843] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300 flex items-center gap-2"
                 >
                   <EnvironmentOutlined className="text-lg" />
                   XEM BẢN ĐỒ
@@ -203,13 +205,13 @@ const Contact: React.FC = () => {
               <div className="flex gap-4 justify-end">
                 <button
                   type="submit"
-                  className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
+                  className="bg-[#77b843] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300"
                 >
                   GỬI
                 </button>
                 <button
                   type="reset"
-                  className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
+                  className="bg-[#77b843] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300"
                 >
                   NHẬP LẠI
                 </button>
@@ -219,7 +221,7 @@ const Contact: React.FC = () => {
 
           {/* Google Map Section */}
           <div id="google-map-section" className="mt-12">
-            <h3 className="text-2xl font-bold text-green-600 mb-6">
+            <h3 className="text-2xl font-bold text-[#77b843] mb-6">
               Vị trí của chúng tôi
             </h3>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">

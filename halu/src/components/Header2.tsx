@@ -26,8 +26,8 @@ const Header2: React.FC = () => {
   }
 
   return (
-    <div className="bg-green-600 py-3">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+    <div className="bg-[#77b843] py-3">
+      <div className="container mx-auto px-4 md:px-6">
         <h1 className="text-white text-lg md:text-xl font-semibold text-left">
           {pageTitle}
         </h1>

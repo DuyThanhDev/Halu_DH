@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-green-600 shadow-sm py-4 px-6 flex items-center justify-between sticky top-0 z-50">
+    <header className="bg-[#77b843] shadow-sm py-4 px-6 flex items-center justify-between sticky top-0 z-50">
       <div className="flex items-center gap-4">
         <a href="#" className="flex items-center gap-2">
           <img
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
         </Link>
         <div className="flex items-center gap-4">
           <button
-            className="p-2 rounded-full hover:bg-green-700 text-white"
+            className="p-2 rounded-full hover:#77b843 text-white"
             onClick={toggleSearch}
           >
             🔍
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-green-600 text-white rounded-r-md hover:bg-green-700"
+                  className="px-4 py-2 bg-[#77b843] text-white rounded-r-md hover:bg-[#77b843]"
                 >
                   🔍
                 </button>
