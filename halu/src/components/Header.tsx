@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         <a href="#" className="text-white hover:text-green-200 px-3">
           SẢN PHẨM
         </a>
-        <a href="#" className="text-white hover:text-green-200 px-3">
+        <a href="/news" className="text-white hover:text-green-200 px-3">
           TIN TỨC
         </a>
         <Link

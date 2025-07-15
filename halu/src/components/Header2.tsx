@@ -13,6 +13,8 @@ const Header2: React.FC = () => {
         return "Sản phẩm";
       case "/contact":
         return "LIÊN HỆ";
+        case "/news":
+        return "TIN TỨC";
       default:
         return null;
     }

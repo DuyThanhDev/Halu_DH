@@ -176,7 +176,7 @@ const Home: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
               Đôi nét về
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-green-700">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-[#77b843]">
               NPFOOD
             </h3>
             <p className="text-gray-600 leading-relaxed text-justify">
@@ -215,7 +215,7 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={handleLearnMore}
-              className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-[#77b843] transition-colors"
+              className="bg-[#77b843] text-white px-6 py-3 rounded-md hover:bg-[#77b843] transition-colors"
             >
               TÌM HIỂU THÊM
             </button>
@@ -226,7 +226,7 @@ const Home: React.FC = () => {
       {/* Featured Products Section */}
       <section className="py-12 md:py-20 white">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#77b843] mb-2">
             SẢN PHẨM NỔI BẬT
           </h2>
           <div className="w-24 h-1 bg-[#77b843] mx-auto mb-10" />
@@ -239,7 +239,7 @@ const Home: React.FC = () => {
                   className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
+              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
                 Trà Xanh Tân Long Hộp Giấy 100g
               </h3>
             </div>
@@ -251,7 +251,7 @@ const Home: React.FC = () => {
                   className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
+              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
                 Trà Oolong Tân Long Gold Class 320g
               </h3>
             </div>
@@ -263,7 +263,7 @@ const Home: React.FC = () => {
                   className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
+              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
                 Trà Oolong Tân Long Daily Class 100g
               </h3>
             </div>
