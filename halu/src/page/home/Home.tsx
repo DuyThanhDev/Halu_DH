@@ -179,18 +179,18 @@ const Home: React.FC = () => {
             <h3 className="text-3xl md:text-4xl font-extrabold text-green-700">
               NPFOOD
             </h3>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               NPFOOD là thương hiệu các sản phẩm của công ty TNHH NPFOOD Việt
               Nam.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               NP được viết tắt của cụm từ "Nutrition & Purity" với ý nghĩa "Dinh
               dưỡng và thuần khiết" thể hiện sự cam kết của công ty trong việc
               mang đến những sản phẩm chất lượng cao và an toàn cho sức khỏe
               người tiêu dùng. NPFOOD Việt Nam tại thị trường. Hiện tại công ty
               NPFOOD Việt Nam có các dòng sản phẩm mang các thương hiệu sau:
             </p>
-            <ul className="list-disc list-inside text-gray-600 space-y-3">
+            <ul className="list-disc list-inside text-gray-600 space-y-3 text-justify">
               <li>
                 <span className="font-semibold">MR LEE:</span> Các sản phẩm
                 Kimchi Hàn Quốc
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
                 Tráng Nướng, Bánh Tráng Trộn...
               </li>
             </ul>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               NPFOOD Việt Nam luôn mong muốn đem đến những sản phẩm có giá trị
               tốt nhất cho người dùng Việt Nam và rất mong nhận được sự ủng hộ
               của người tiêu dùng.
