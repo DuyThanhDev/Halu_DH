@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const bannerImages = [
     "/src/assets/banner-8-1920x932-01.png",
@@ -21,6 +22,21 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, [bannerImages.length]);
 
+  // Show scroll to top button when near bottom
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const scrolledToBottom = scrollTop + windowHeight >= documentHeight - 300;
+
+      setShowScrollTop(scrolledToBottom);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
   };
@@ -36,6 +52,23 @@ const Home: React.FC = () => {
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLearnMore = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (
@@ -139,7 +172,7 @@ const Home: React.FC = () => {
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="space-y-4">
+          <div className="space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
               Đôi nét về
             </h2>
@@ -157,7 +190,7 @@ const Home: React.FC = () => {
               người tiêu dùng. NPFOOD Việt Nam tại thị trường. Hiện tại công ty
               NPFOOD Việt Nam có các dòng sản phẩm mang các thương hiệu sau:
             </p>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <ul className="list-disc list-inside text-gray-600 space-y-3">
               <li>
                 <span className="font-semibold">MR LEE:</span> Các sản phẩm
                 Kimchi Hàn Quốc
@@ -180,7 +213,10 @@ const Home: React.FC = () => {
               tốt nhất cho người dùng Việt Nam và rất mong nhận được sự ủng hộ
               của người tiêu dùng.
             </p>
-            <button className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors">
+            <button
+              onClick={handleLearnMore}
+              className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors"
+            >
               TÌM HIỂU THÊM
             </button>
           </div>
@@ -188,46 +224,46 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 white">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
             SẢN PHẨM NỔI BẬT
           </h2>
           <div className="w-24 h-1 bg-green-700 mx-auto mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md">
-              <img
-                src="/placeholder.svg?height=200&width=200"
-                alt="Trà Xanh Tân Long Hộp Giấy 100g"
-                width={200}
-                height={200}
-                className="mb-4 object-contain"
-              />
-              <h3 className="text-lg font-semibold text-gray-800 text-center">
+            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
+              <div className="h-80 flex items-center justify-center mb-4">
+                <img
+                  src="/src/assets/tra-xanh-100g.jpg"
+                  alt="Trà Xanh Tân Long Hộp Giấy 100g"
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
                 Trà Xanh Tân Long Hộp Giấy 100g
               </h3>
             </div>
-            <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md">
-              <img
-                src="/placeholder.svg?height=200&width=200"
-                alt="Trà Oolong Tân Long Gold Class 320g"
-                width={200}
-                height={200}
-                className="mb-4 object-contain"
-              />
-              <h3 className="text-lg font-semibold text-gray-800 text-center">
+            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
+              <div className="h-80 flex items-center justify-center mb-4">
+                <img
+                  src="/src/assets/olong-gold-320g.jpg"
+                  alt="Trà Oolong Tân Long Gold Class 320g"
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
                 Trà Oolong Tân Long Gold Class 320g
               </h3>
             </div>
-            <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md">
-              <img
-                src="/placeholder.svg?height=200&width=200"
-                alt="Trà Oolong Tân Long Daily Class 100g"
-                width={200}
-                height={200}
-                className="mb-4 object-contain"
-              />
-              <h3 className="text-lg font-semibold text-gray-800 text-center">
+            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
+              <div className="h-80 flex items-center justify-center mb-4">
+                <img
+                  src="/src/assets/olong-goi-100g-2022.jpg"
+                  alt="Trà Oolong Tân Long Daily Class 100g"
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 text-center h-12 flex items-center">
                 Trà Oolong Tân Long Daily Class 100g
               </h3>
             </div>
@@ -237,6 +273,29 @@ const Home: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+          aria-label="Scroll to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
