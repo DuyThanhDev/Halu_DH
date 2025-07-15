@@ -31,6 +31,13 @@ const Home: React.FC = () => {
     );
   };
 
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about-section");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -97,16 +104,37 @@ const Home: React.FC = () => {
                 />
               ))}
             </div>
+
+            {/* Scroll down button */}
+            <button
+              onClick={scrollToAbout}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-sm rounded-full p-3 text-white hover:bg-white/30 transition-all duration-300 animate-bounce z-10"
+              aria-label="Scroll to next section"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-12 md:py-20 bg-white">
+      <section id="about-section" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative h-64 md:h-96 w-full">
+          <div className="relative h-80 md:h-[35rem] w-full">
             <img
-              src="/placeholder.svg?height=600&width=800"
+              src="/src/assets/san-xuong-bau-tre-2.jpg"
               alt="NPFOOD Factory"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
