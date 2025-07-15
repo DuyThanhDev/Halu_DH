@@ -1,17 +1,31 @@
 import type React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { getTop3BestProducts, type Product } from "../../data/products";
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const navigate = useNavigate();
 
   const bannerImages = [
     "/src/assets/banner-8-1920x932-01.png",
     "/src/assets/banner-12-2.jpg",
     "/src/assets/cong-cong-ty2.jpg",
   ];
+
+  // Get top 3 best products
+  const featuredProducts = getTop3BestProducts();
+
+  // Handle product click
+  const handleProductClick = (product: Product) => {
+    // Save product data to localStorage
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    // Navigate to product detail page
+    navigate(`/products/${product.id}`);
+  };
 
   // Auto-slide every 5 seconds
   useEffect(() => {
@@ -231,42 +245,24 @@ const Home: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-[#77b843] mx-auto mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
-              <div className="h-80 flex items-center justify-center mb-4">
-                <img
-                  src="/src/assets/tra-xanh-100g.jpg"
-                  alt="Trà Xanh Tân Long Hộp Giấy 100g"
-                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                />
+            {featuredProducts.map((product) => (
+              <div
+                key={product.id}
+                onClick={() => handleProductClick(product)}
+                className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
+              >
+                <div className="h-80 flex items-center justify-center mb-4">
+                  <img
+                    src={product.mainImage}
+                    alt={product.name}
+                    className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center group-hover:text-[#5a8a2f] transition-colors">
+                  {product.name}
+                </h3>
               </div>
-              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
-                Trà Xanh Tân Long Hộp Giấy 100g
-              </h3>
-            </div>
-            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
-              <div className="h-80 flex items-center justify-center mb-4">
-                <img
-                  src="/src/assets/olong-gold-320g.jpg"
-                  alt="Trà Oolong Tân Long Gold Class 320g"
-                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
-                Trà Oolong Tân Long Gold Class 320g
-              </h3>
-            </div>
-            <div className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300">
-              <div className="h-80 flex items-center justify-center mb-4">
-                <img
-                  src="/src/assets/olong-goi-100g-2022.jpg"
-                  alt="Trà Oolong Tân Long Daily Class 100g"
-                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center">
-                Trà Oolong Tân Long Daily Class 100g
-              </h3>
-            </div>
+            ))}
           </div>
         </div>
       </section>

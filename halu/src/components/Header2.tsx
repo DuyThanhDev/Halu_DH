@@ -1,7 +1,14 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-const Header2: React.FC = () => {
+interface Header2Props {
+  breadcrumb?: {
+    category?: string;
+    productName?: string;
+  };
+}
+
+const Header2: React.FC<Header2Props> = ({ breadcrumb }) => {
   const location = useLocation();
 
   // Map routes to page titles
@@ -13,7 +20,7 @@ const Header2: React.FC = () => {
         return "Sản phẩm";
       case "/contact":
         return "LIÊN HỆ";
-        case "/news":
+      case "/news":
         return "TIN TỨC";
       default:
         return null;
@@ -22,17 +29,28 @@ const Header2: React.FC = () => {
 
   const pageTitle = getPageTitle(location.pathname);
 
-  // Don't render anything if no title (home page or unknown route)
-  if (!pageTitle) {
-    return null;
-  }
+  const getBreadcrumbText = () => {
+    if (breadcrumb) {
+      // Khi có breadcrumb (product detail page)
+      let text = "SẢN PHẨM";
+      if (breadcrumb.category) {
+        text += ` > ${breadcrumb.category}`;
+      }
+      if (breadcrumb.productName) {
+        text += ` > ${breadcrumb.productName}`;
+      }
+      return text;
+    }
+    // Default cho các trang khác (News, About, Contact...)
+    return "SẢN PHẨM";
+  };
 
   return (
     <div className="bg-[#77b843] py-3">
       <div className="container mx-auto px-4 md:px-6">
-        <h1 className="text-white text-lg md:text-xl font-semibold text-left">
-          {pageTitle}
-        </h1>
+        <div className="text-white text-lg font-medium">
+          {breadcrumb ? getBreadcrumbText() : pageTitle}
+        </div>
       </div>
     </div>
   );

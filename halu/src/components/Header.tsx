@@ -45,9 +45,33 @@ const Header: React.FC = () => {
         >
           VỀ CHÚNG TÔI
         </Link>
-        <a href="#" className="text-white hover:text-green-200 px-3">
-          SẢN PHẨM
-        </a>
+        <div className="relative group">
+          <button className="text-white hover:text-green-200 px-3">
+            SẢN PHẨM
+          </button>
+          <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-lg min-w-[200px] z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div className="py-2">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
+              >
+                Trà
+              </a>
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
+              >
+                Kimchi, Rau Chua
+              </a>
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
+              >
+                Bánh Tráng
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="/news" className="text-white hover:text-green-200 px-3">
           TIN TỨC
         </a>
