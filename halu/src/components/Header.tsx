@@ -44,31 +44,58 @@ const Header: React.FC = () => {
           className="text-white hover:text-green-200 px-3"
         >
           VỀ CHÚNG TÔI
-        </Link>
+        </Link>{" "}
         <div className="relative group">
-          <button className="text-white hover:text-green-200 px-3">
+          <Link
+            to="/products"
+            onClick={() => {
+              localStorage.setItem("selectedCategory", "SẢN PHẨM");
+              // Trigger storage event manually
+              window.dispatchEvent(new Event("storage"));
+              scrollToTop();
+            }}
+            className="text-white hover:text-green-200 px-3"
+          >
             SẢN PHẨM
-          </button>
+          </Link>
           <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-lg min-w-[200px] z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <div className="py-2">
-              <a
-                href="#"
+              <Link
+                to="/products"
+                onClick={() => {
+                  localStorage.setItem("selectedCategory", "TRÀ");
+                  // Trigger storage event manually
+                  window.dispatchEvent(new Event("storage"));
+                  scrollToTop();
+                }}
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
               >
                 Trà
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/products"
+                onClick={() => {
+                  localStorage.setItem("selectedCategory", "THỰC PHẨM");
+                  // Trigger storage event manually
+                  window.dispatchEvent(new Event("storage"));
+                  scrollToTop();
+                }}
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
               >
                 Kimchi, Rau Chua
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/products"
+                onClick={() => {
+                  localStorage.setItem("selectedCategory", "BÁNH TRÁNG");
+                  // Trigger storage event manually
+                  window.dispatchEvent(new Event("storage"));
+                  scrollToTop();
+                }}
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#77b843]"
               >
                 Bánh Tráng
-              </a>
+              </Link>
             </div>
           </div>
         </div>
