@@ -77,7 +77,13 @@ const Products: React.FC = () => {
   // Handle page change
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Add small delay to ensure state update, then scroll
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100);
   };
 
   // Handle product click
@@ -146,6 +152,15 @@ const Products: React.FC = () => {
           {totalPages > 1 && (
             <div className="flex justify-center mt-12">
               <div className="flex gap-2">
+                {/* First page button */}
+                <button
+                  onClick={() => handlePageChange(1)}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  « Đầu
+                </button>
+
                 {/* Previous button */}
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
@@ -179,6 +194,15 @@ const Products: React.FC = () => {
                   className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Tiếp ›
+                </button>
+
+                {/* Last page button */}
+                <button
+                  onClick={() => handlePageChange(totalPages)}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Cuối »
                 </button>
               </div>
             </div>
