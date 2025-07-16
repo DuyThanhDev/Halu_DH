@@ -67,7 +67,7 @@ const NewsDetail: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/banner-1-011.png"
           alt="NPFOOD News"
@@ -97,7 +97,7 @@ const NewsDetail: React.FC = () => {
               {/* Article Header */}
               <div className="mb-8">
                 {/* Category and Date */}
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                   <span className="inline-block bg-[#77b843] text-white px-4 py-2 rounded-full text-sm font-medium">
                     {news.category}
                   </span>
@@ -107,12 +107,12 @@ const NewsDetail: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h1 className="text-4xl font-bold text-gray-800 leading-tight mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-6">
                   {news.title}
                 </h1>
 
                 {/* Excerpt */}
-                <p className="text-xl text-gray-600 leading-relaxed mb-8 font-medium">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 font-medium">
                   {news.excerpt}
                 </p>
               </div>
@@ -122,13 +122,13 @@ const NewsDetail: React.FC = () => {
                 <img
                   src={news.image}
                   alt={news.title}
-                  className="w-full h-[400px] object-cover rounded-xl shadow-lg"
+                  className="w-full h-[300px] sm:h-[400px] object-cover rounded-xl shadow-lg"
                 />
               </div>
 
               {/* Article Content */}
               <div className="prose prose-lg max-w-none">
-                <div className="text-gray-700 leading-relaxed text-justify whitespace-pre-line">
+                <div className="text-gray-700 leading-relaxed text-justify whitespace-pre-line text-sm sm:text-base">
                   {news.content}
                 </div>
               </div>
@@ -138,14 +138,14 @@ const NewsDetail: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">
                   Chia sẻ bài viết
                 </h3>
-                <div className="flex gap-4">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                <div className="flex flex-wrap gap-4">
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base">
                     Facebook
                   </button>
-                  <button className="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors">
+                  <button className="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors text-sm sm:text-base">
                     Twitter
                   </button>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                  <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base">
                     WhatsApp
                   </button>
                 </div>
@@ -155,7 +155,7 @@ const NewsDetail: React.FC = () => {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Related News */}
-              <div className="bg-gray-50 rounded-xl p-6">
+              <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-6">
                   Tin tức liên quan
                 </h3>

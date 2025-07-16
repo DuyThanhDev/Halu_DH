@@ -10,7 +10,7 @@ const About: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/cong-cong-ty2.jpg"
           alt="NPFOOD Company"
@@ -25,14 +25,14 @@ const About: React.FC = () => {
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="space-y-8">
-            <h1 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#77b843] mb-8 text-center">
               Giới thiệu
             </h1>
-            <h4 className="text-2xl md:text-3xl font-bold text-amber-800 mb-8 drop-shadow-lg">
+            <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-800 mb-8 drop-shadow-lg">
               NPFOOD - Sản phẩm dinh dưỡng và thuần khiết
             </h4>
 
-            <div className="space-y-8 text-gray-700 leading-relaxed text-lg text-justify">
+            <div className="space-y-6 sm:space-y-8 text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
               <p>
                 <span className="font-semibold">Công ty TNHH NPFOOD</span> Việt
                 Nam được thành lập từ năm 2015 chuyên sản xuất các sản phẩm thực
@@ -69,7 +69,7 @@ const About: React.FC = () => {
                 hàng hơn.
               </p>
 
-              <p className="text-xl font-semibold">Trân trọng!</p>
+              <p className="text-lg sm:text-xl font-semibold">Trân trọng!</p>
             </div>
           </div>
         </div>

@@ -88,7 +88,7 @@ const Search: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/banner-san-pham-trang-chinh3-01.jpg"
           alt="NPFOOD Search"
@@ -104,7 +104,7 @@ const Search: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Search Info */}
           <div className="mb-12">
-            <h2 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#77b843] mb-8 text-center">
               {isLoading
                 ? "ĐANG TÌM KIẾM..."
                 : searchQuery
@@ -178,25 +178,25 @@ const Search: React.FC = () => {
           {/* Search Results - Products Grid (giống Products.tsx) */}
           {!isLoading && searchResults.length > 0 && (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {currentProducts.map((product) => (
                   <div
                     key={product.id}
                     onClick={() => handleProductClick(product)}
-                    className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
+                    className="flex flex-col items-center p-4 md:p-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
                   >
-                    <div className="h-80 flex items-center justify-center mb-4">
+                    <div className="h-64 sm:h-72 md:h-80 flex items-center justify-center mb-4">
                       <img
                         src={product.mainImage}
                         alt={product.name}
                         className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-[#77b843] text-center h-16 flex items-center group-hover:text-[#5a8a2f] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#77b843] text-center h-12 sm:h-16 flex items-center group-hover:text-[#5a8a2f] transition-colors">
                       {product.name}
                     </h3>
                     <div className="text-center">
-                      <button className="bg-[#77b843] text-white px-6 py-3 rounded-lg hover:bg-[#5a8a2f] transition-colors text-base font-semibold">
+                      <button className="bg-[#77b843] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#5a8a2f] transition-colors text-sm sm:text-base font-semibold">
                         Xem chi tiết →
                       </button>
                     </div>

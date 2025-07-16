@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/cong-cong-ty2.jpg"
           alt="NPFOOD Company"
@@ -46,22 +46,22 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Contact Information */}
           <div className="mb-12">
-            <h1 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#77b843] mb-8 text-center">
               Liên hệ
             </h1>
             <div className="flex flex-col md:flex-row items-start justify-between gap-8">
               {/* Logo */}
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
                 <div className="bg-white rounded-xl shadow-xl p-4 flex items-center justify-center border border-gray-200">
                   <img
                     src="/assets/logo-npfood_xanh-01.png"
                     alt="NPFOOD Logo"
-                    className="h-20 w-auto"
+                    className="h-16 sm:h-20 w-auto"
                   />
                 </div>
               </div>
               {/* Thông tin */}
-              <div className="flex-1 space-y-3 text-gray-700">
+              <div className="flex-1 space-y-3 text-gray-700 text-sm sm:text-base">
                 <div className="flex items-start gap-3">
                   <HomeOutlined className="text-[#77b843] mt-1 text-lg" />
                   <span>
@@ -93,10 +93,10 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               {/* Xem bản đồ */}
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-end">
                 <button
                   onClick={scrollToMap}
-                  className="bg-[#77b843] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300 flex items-center gap-2"
+                  className="bg-[#77b843] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300 flex items-center gap-2 text-sm sm:text-base"
                 >
                   <EnvironmentOutlined className="text-lg" />
                   XEM BẢN ĐỒ
@@ -110,13 +110,13 @@ const Contact: React.FC = () => {
             {/* Bên trái */}
             <div className="space-y-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Họ tên (*)
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập họ tên"
                     required
                   />
@@ -125,13 +125,13 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Email (*)
                 </label>
                 <div className="relative">
                   <input
                     type="email"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập email"
                     required
                   />
@@ -140,13 +140,13 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Điện thoại (*)
                 </label>
                 <div className="relative">
                   <input
                     type="tel"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập số điện thoại"
                     required
                   />
@@ -155,13 +155,13 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Địa chỉ (*)
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập địa chỉ"
                     required
                   />
@@ -173,13 +173,13 @@ const Contact: React.FC = () => {
             {/* Bên phải */}
             <div className="space-y-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Tiêu đề (*)
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập tiêu đề"
                     required
                   />
@@ -188,13 +188,13 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">
                   Nội dung (*)
                 </label>
                 <div className="relative">
                   <textarea
                     rows={6}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 pl-10 text-sm sm:text-base"
                     placeholder="Nhập nội dung"
                     required
                   />
@@ -202,16 +202,16 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4 justify-end">
+              <div className="flex flex-col sm:flex-row gap-4 justify-end">
                 <button
                   type="submit"
-                  className="bg-[#77b843] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300"
+                  className="bg-[#77b843] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300 text-sm sm:text-base"
                 >
                   GỬI
                 </button>
                 <button
                   type="reset"
-                  className="bg-[#77b843] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300"
+                  className="bg-[#77b843] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#77b843] transition-colors duration-300 text-sm sm:text-base"
                 >
                   NHẬP LẠI
                 </button>
@@ -221,7 +221,7 @@ const Contact: React.FC = () => {
 
           {/* Google Map Section */}
           <div id="google-map-section" className="mt-12">
-            <h3 className="text-2xl font-bold text-[#77b843] mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#77b843] mb-6">
               Vị trí của chúng tôi
             </h3>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">

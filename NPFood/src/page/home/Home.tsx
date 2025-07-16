@@ -91,7 +91,7 @@ const Home: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden">
         <img
           src={bannerImages[currentSlide]}
           alt="Banner"
@@ -102,12 +102,13 @@ const Home: React.FC = () => {
             {/* Left arrow */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                className="sm:w-6 sm:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -122,12 +123,13 @@ const Home: React.FC = () => {
             {/* Right arrow */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                className="sm:w-6 sm:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -145,7 +147,7 @@ const Home: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
                     index === currentSlide ? "bg-white" : "bg-white/50"
                   }`}
                 />
@@ -160,8 +162,9 @@ const Home: React.FC = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                className="sm:w-6 sm:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -178,33 +181,33 @@ const Home: React.FC = () => {
 
       {/* About Section */}
       <section id="about-section" className="py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative h-80 md:h-[35rem] w-full">
+        <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="relative h-64 sm:h-80 md:h-[25rem] lg:h-[35rem] w-full">
             <img
               src="./assets/san-xuong-bau-tre-2.jpg"
               alt="NPFOOD Factory"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <div className="space-y-4 md:space-y-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
               Đôi nét về
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-[#77b843]">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#77b843]">
               NPFOOD
             </h3>
-            <p className="text-gray-600 leading-relaxed text-justify">
+            <p className="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
               NPFOOD là thương hiệu các sản phẩm của công ty TNHH NPFOOD Việt
               Nam.
             </p>
-            <p className="text-gray-600 leading-relaxed text-justify">
+            <p className="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
               NP được viết tắt của cụm từ "Nutrition & Purity" với ý nghĩa "Dinh
               dưỡng và thuần khiết" thể hiện sự cam kết của công ty trong việc
               mang đến những sản phẩm chất lượng cao và an toàn cho sức khỏe
               người tiêu dùng. NPFOOD Việt Nam tại thị trường. Hiện tại công ty
               NPFOOD Việt Nam có các dòng sản phẩm mang các thương hiệu sau:
             </p>
-            <ul className="list-disc list-inside text-gray-600 space-y-3 text-justify">
+            <ul className="list-disc list-inside text-gray-600 space-y-2 sm:space-y-3 text-justify text-sm sm:text-base">
               <li>
                 <span className="font-semibold">MR LEE:</span> Các sản phẩm
                 Kimchi Hàn Quốc
@@ -222,14 +225,14 @@ const Home: React.FC = () => {
                 Tráng Nướng, Bánh Tráng Trộn...
               </li>
             </ul>
-            <p className="text-gray-600 leading-relaxed text-justify">
+            <p className="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
               NPFOOD Việt Nam luôn mong muốn đem đến những sản phẩm có giá trị
               tốt nhất cho người dùng Việt Nam và rất mong nhận được sự ủng hộ
               của người tiêu dùng.
             </p>
             <button
               onClick={handleLearnMore}
-              className="bg-[#77b843] text-white px-6 py-3 rounded-md hover:bg-[#77b843] transition-colors"
+              className="bg-[#77b843] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md hover:bg-[#77b843] transition-colors text-sm sm:text-base"
             >
               TÌM HIỂU THÊM
             </button>
@@ -240,25 +243,25 @@ const Home: React.FC = () => {
       {/* Featured Products Section */}
       <section className="py-12 md:py-20 white">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#77b843] mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#77b843] mb-2">
             SẢN PHẨM NỔI BẬT
           </h2>
-          <div className="w-24 h-1 bg-[#77b843] mx-auto mb-10" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="w-24 h-1 bg-[#77b843] mx-auto mb-8 md:mb-10" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {featuredProducts.map((product) => (
               <div
                 key={product.id}
                 onClick={() => handleProductClick(product)}
-                className="flex flex-col items-center p-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
+                className="flex flex-col items-center p-4 md:p-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
               >
-                <div className="h-80 flex items-center justify-center mb-4">
+                <div className="h-60 sm:h-72 md:h-80 flex items-center justify-center mb-4">
                   <img
                     src={product.mainImage}
                     alt={product.name}
                     className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-[#77b843] text-center h-12 flex items-center group-hover:text-[#5a8a2f] transition-colors">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#77b843] text-center h-12 flex items-center group-hover:text-[#5a8a2f] transition-colors">
                   {product.name}
                 </h3>
               </div>

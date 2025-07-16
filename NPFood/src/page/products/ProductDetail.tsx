@@ -106,7 +106,7 @@ const ProductDetail: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[350px] sm:h-[400px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/banner-1-011.png"
           alt="NPFOOD Product"
@@ -124,17 +124,17 @@ const ProductDetail: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side (1/2) - Images Section */}
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               {/* Thumbnail Images - 2/5 of left side */}
-              <div className="w-1/5 mt-6">
+              <div className="order-2 sm:order-1 w-full sm:w-1/5 mt-0 sm:mt-6">
                 <div className="relative">
-                  {/* Up button */}
+                  {/* Up button - Hidden on mobile, visible on tablet+ */}
                   {product.images.length > 4 && (
                     <button
                       onClick={() =>
                         setCurrentImageIndex((prev) => Math.max(0, prev - 1))
                       }
-                      className="absolute -top-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      className="absolute -top-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50 hidden sm:block"
                       style={{ transform: "translate(-50%, 0)" }}
                       disabled={currentImageIndex === 0}
                     >
@@ -154,15 +154,15 @@ const ProductDetail: React.FC = () => {
                     </button>
                   )}
 
-                  {/* Images vertical layout - 4 images */}
-                  <div className="space-y-2">
+                  {/* Images layout - horizontal on mobile, vertical on tablet+ */}
+                  <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible">
                     {product.images
                       .slice(currentImageIndex, currentImageIndex + 4)
                       .map((image, index) => (
                         <div
                           key={currentImageIndex + index}
                           onClick={() => setSelectedImage(image)}
-                          className={`cursor-pointer border-2 rounded-lg overflow-hidden transition-all w-28 h-28 ${
+                          className={`cursor-pointer border-2 rounded-lg overflow-hidden transition-all flex-shrink-0 w-20 h-20 sm:w-28 sm:h-28 ${
                             selectedImage === image
                               ? "border-[#77b843]"
                               : "border-gray-200 hover:border-gray-300"
@@ -173,13 +173,13 @@ const ProductDetail: React.FC = () => {
                             alt={`${product.name} ${
                               currentImageIndex + index + 1
                             }`}
-                            className="w-28 h-28 object-contain"
+                            className="w-full h-full object-contain"
                           />
                         </div>
                       ))}
                   </div>
 
-                  {/* Down button */}
+                  {/* Down button - Hidden on mobile, visible on tablet+ */}
                   {product.images.length > 4 && (
                     <button
                       onClick={() =>
@@ -187,7 +187,7 @@ const ProductDetail: React.FC = () => {
                           Math.min(product.images.length - 4, prev + 1)
                         )
                       }
-                      className="absolute -bottom-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      className="absolute -bottom-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50 hidden sm:block"
                       style={{ transform: "translate(-50%, 0)" }}
                       disabled={currentImageIndex >= product.images.length - 4}
                     >
@@ -210,32 +210,32 @@ const ProductDetail: React.FC = () => {
               </div>
 
               {/* Main Image - 3/5 of left side */}
-              <div className="w-4/5 flex items-center justify-center">
+              <div className="order-1 sm:order-2 w-full sm:w-4/5 flex items-center justify-center">
                 <div className="w-full">
                   <img
                     src={selectedImage || product.mainImage}
                     alt={product.name}
-                    className="w-full h-auto object-contain max-h-[32rem]"
+                    className="w-full h-auto object-contain max-h-[20rem] sm:max-h-[32rem]"
                   />
                 </div>
               </div>
             </div>
 
             {/* Right Side (1/2) - Product Info */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h1 className="text-4xl font-bold text-[#77b843] mb-6 uppercase leading-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#77b843] mb-4 sm:mb-6 uppercase leading-tight">
                   {product.name}
                 </h1>
-                <p className="text-gray-700 text-xl leading-relaxed mb-8 text-justify">
+                <p className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-6 sm:mb-8 text-justify">
                   {product.description}
                 </p>
-                <div className="text-4xl font-bold text-[#77b843] mb-10">
+                <div className="text-3xl sm:text-4xl font-bold text-[#77b843] mb-6 sm:mb-10">
                   {product.price}
                 </div>
                 <button
                   onClick={handleBuyNow}
-                  className="w-3/5 bg-[#77b843] text-white py-5 px-8 rounded-lg text-xl font-semibold 
+                  className="w-full sm:w-3/5 bg-[#77b843] text-white py-4 sm:py-5 px-6 sm:px-8 rounded-lg text-lg sm:text-xl font-semibold 
                              hover:bg-[#5a8a2f] transform hover:scale-105 transition-all duration-300 
                              shadow-lg hover:shadow-xl active:scale-95"
                 >

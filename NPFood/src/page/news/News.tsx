@@ -59,7 +59,7 @@ const News: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
         <img
           src="/assets/no-image-bg.png"
           alt="NPFOOD Kimchi"
@@ -75,7 +75,7 @@ const News: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Page Title */}
           <div className="mb-12">
-            <h1 className="text-6xl font-bold text-[#77b843] mb-8 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#77b843] mb-8 text-center">
               TIN TỨC
             </h1>
           </div>
@@ -86,7 +86,7 @@ const News: React.FC = () => {
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`px-6 py-3 rounded-full transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 text-sm sm:text-base ${
                   selectedCategory === category
                     ? "bg-[#77b843] text-white shadow-lg"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -98,7 +98,7 @@ const News: React.FC = () => {
           </div>
 
           {/* News Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {currentNews.map((news) => {
               const { day, month, year } = formatNewsDate(news.date);
               return (
@@ -124,7 +124,7 @@ const News: React.FC = () => {
                   </div>
 
                   {/* News Content */}
-                  <div className="p-6">
+                  <div className="p-4 sm:p-6">
                     {/* Category Tag */}
                     <div className="mb-3">
                       <span className="inline-block bg-[#77b843] text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -133,18 +133,18 @@ const News: React.FC = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-[#77b843] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-[#77b843] transition-colors">
                       {news.title}
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-gray-600 mb-4 leading-relaxed text-justify h-12 flex items-start">
+                    <p className="text-gray-600 mb-4 leading-relaxed text-justify h-12 flex items-start text-sm sm:text-base">
                       {truncateText(news.excerpt)}
                     </p>
 
                     {/* Author and Read More */}
                     <div className="flex items-center justify-between">
-                      <div className="text-sm text-gray-500">
+                      <div className="text-xs sm:text-sm text-gray-500">
                         Bởi {news.author}
                       </div>
                       <button
@@ -152,7 +152,7 @@ const News: React.FC = () => {
                           e.stopPropagation();
                           handleNewsClick(news.id);
                         }}
-                        className="text-[#77b843] font-semibold hover:text-[#5a8a2f] transition-colors"
+                        className="text-[#77b843] font-semibold hover:text-[#5a8a2f] transition-colors text-sm sm:text-base"
                       >
                         Đọc thêm →
                       </button>
