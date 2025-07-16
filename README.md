@@ -85,7 +85,7 @@ src/
 
 ## 🌐 **Live Demo**
 
-🔗 **[View Live Website](https://nutrition-purity-food-rfs1-8edtut6ua-duythanhdevs-projects.vercel.app/)**
+🔗 **[View Live Website](https://nutrition-purity-food.vercel.app/)**
 
 ---
 
