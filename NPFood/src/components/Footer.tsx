@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           <div className="flex items-center gap-2 justify-center md:justify-start">
             <span className="text-4xl font-bold text-white">Liên kết với</span>
             <img
-              src="/assets/logo-npfood_xanh-01.png"
+              src="./assets/logo-npfood_xanh-01.png"
               alt="NPFOOD Logo"
               className="h-16"
               style={{ filter: "brightness(0) invert(1)" }}
