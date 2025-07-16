@@ -11,9 +11,9 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   const bannerImages = [
-    "./assets/banner-8-1920x932-01.png",
-    "./assets/banner-12-2.jpg",
-    "./assets/cong-cong-ty2.jpg",
+    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1920&h=932&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1920&h=932&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=1920&h=932&fit=crop&crop=center",
   ];
 
   // Get top 3 best products
@@ -181,7 +181,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
           <div className="relative h-80 md:h-[35rem] w-full">
             <img
-              src="./assets/san-xuong-bau-tre-2.jpg"
+              src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&h=600&fit=crop&crop=center"
               alt="NPFOOD Factory"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
