@@ -10,7 +10,7 @@ const News: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[400px] overflow-hidden">
+      <section className="relative w-full h-[500px] overflow-hidden">
         <img
           src="/src/assets/banner-1-011.png"
           alt="NPFOOD Kimchi"

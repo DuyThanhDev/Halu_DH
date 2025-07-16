@@ -26,7 +26,7 @@ export const products: Product[] = [
       "/src/assets/99x100x1-tach-tra-xanh.jpg.jpg"
     ],
     description: "Trà xanh Tân Long chất lượng cao được chế biến từ búp trà tươi ngon nhất.",
-    price: "35,000đ",
+    price: "35,000 VNĐ",
     ingredients: "100% búp trà xanh một tôm hai lá",
     appearance: "Lá trà nhỏ, màu xanh đậm, đều đặn",
     taste: "Nước trà xanh trong, vị thanh đậm đà, hương thơm tự nhiên",
@@ -47,7 +47,7 @@ export const products: Product[] = [
       "/src/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Oolong cao cấp với hương vị đặc trưng, có thể pha được nhiều lần.",
-    price: "180,000đ",
+    price: "180,000 VNĐ",
     ingredients: "100% búp trà Oolong một tôm 2 lá",
     appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
     taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
@@ -71,10 +71,11 @@ export const products: Product[] = [
       "/src/assets/olong-goi-100g-2022.jpg",
       "/src/assets/99x100x1-goi-100g-2002_hong.jpg",
       "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
       "/src/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
-    price: "69,000đ",
+    price: "69,000 VNĐ",
     ingredients: "100% búp trà Oolong một tôm 2 lá",
     appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
     taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
@@ -87,6 +88,118 @@ export const products: Product[] = [
       "Trà Oolong Tân Long có thể pha được 4-5 nước vẫn còn hương vị"
     ],
     isBest: true
+  },
+
+    {
+    id: "tra-004", 
+    name: "Trà Daily Oolong Tân Long Class 500g",
+    category: "Trà",
+    mainImage: "/src/assets/olong-gold-320g.jpg",
+    images: [
+      "/src/assets/olong-goi-100g-2022.jpg",
+      "/src/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/olong-gold-320g.jpg"
+    ],
+    description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
+    price: "69,000 VNĐ",
+    ingredients: "100% búp trà Oolong một tôm 2 lá",
+    appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
+    taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
+    instructions: [
+      "Tráng ấm trà và tách trà bằng nước nóng",
+      "Cho khoảng 10g – 12g trà vào ấm, sau đó cho ít nước sôi vào tráng trà rồi đổ bỏ nước",
+      "Chế khoảng 250ml – 300ml nước sôi vào ấm trà, đậy nắp và đợi khoảng 2 – 3 phút",
+      "Đổ 1 ít nước sôi bên ngoài ấm trà từ trên xuống để giữ độ nóng và hãm trà",
+      "Rót trà ra tách và thưởng thức trà",
+      "Trà Oolong Tân Long có thể pha được 4-5 nước vẫn còn hương vị"
+    ],
+    isBest: false
+  },
+
+    {
+    id: "tra-005", 
+    name: "Trà Long Class Xanh Tân 100g",
+    category: "Trà",
+    mainImage: "/src/assets/olong-goi-100g-2022.jpg",
+    images: [
+      "/src/assets/olong-goi-100g-2022.jpg",
+      "/src/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/olong-gold-320g.jpg"
+    ],
+    description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
+    price: "69,000 VNĐ",
+    ingredients: "100% búp trà Oolong một tôm 2 lá",
+    appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
+    taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
+    instructions: [
+      "Tráng ấm trà và tách trà bằng nước nóng",
+      "Cho khoảng 10g – 12g trà vào ấm, sau đó cho ít nước sôi vào tráng trà rồi đổ bỏ nước",
+      "Chế khoảng 250ml – 300ml nước sôi vào ấm trà, đậy nắp và đợi khoảng 2 – 3 phút",
+      "Đổ 1 ít nước sôi bên ngoài ấm trà từ trên xuống để giữ độ nóng và hãm trà",
+      "Rót trà ra tách và thưởng thức trà",
+      "Trà Oolong Tân Long có thể pha được 4-5 nước vẫn còn hương vị"
+    ],
+    isBest: false
+  },
+
+    {
+    id: "tra-006", 
+    name: "Trà Class Xanh Tân Class 100g",
+    category: "Trà",
+    mainImage: "/src/assets/olong-goi-100g-2022.jpg",
+    images: [
+      "/src/assets/olong-goi-100g-2022.jpg",
+      "/src/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/olong-gold-320g.jpg"
+    ],
+    description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
+    price: "69,000 VNĐ",
+    ingredients: "100% búp trà Oolong một tôm 2 lá",
+    appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
+    taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
+    instructions: [
+      "Tráng ấm trà và tách trà bằng nước nóng",
+      "Cho khoảng 10g – 12g trà vào ấm, sau đó cho ít nước sôi vào tráng trà rồi đổ bỏ nước",
+      "Chế khoảng 250ml – 300ml nước sôi vào ấm trà, đậy nắp và đợi khoảng 2 – 3 phút",
+      "Đổ 1 ít nước sôi bên ngoài ấm trà từ trên xuống để giữ độ nóng và hãm trà",
+      "Rót trà ra tách và thưởng thức trà",
+      "Trà Oolong Tân Long có thể pha được 4-5 nước vẫn còn hương vị"
+    ],
+    isBest: false
+  },
+
+    {
+    id: "tra-007", 
+    name: "Trà Oolong Class Xanh Tân 100g",
+    category: "Trà",
+    mainImage: "/src/assets/olong-goi-100g-2022.jpg",
+    images: [
+      "/src/assets/olong-goi-100g-2022.jpg",
+      "/src/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/99x100x1-tach-tra-olong.jpg",
+      "/src/assets/olong-gold-320g.jpg"
+    ],
+    description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
+    price: "69,000 VNĐ",
+    ingredients: "100% búp trà Oolong một tôm 2 lá",
+    appearance: "Viên tròn to, đều đặn, màu xanh đen bóng tuyệt đẹp",
+    taste: "Nước trà xanh vàng trong suốt, vị thanh tao, nhẹ nhàng, hương thơm phảng phất, dễ chịu",
+    instructions: [
+      "Tráng ấm trà và tách trà bằng nước nóng",
+      "Cho khoảng 10g – 12g trà vào ấm, sau đó cho ít nước sôi vào tráng trà rồi đổ bỏ nước",
+      "Chế khoảng 250ml – 300ml nước sôi vào ấm trà, đậy nắp và đợi khoảng 2 – 3 phút",
+      "Đổ 1 ít nước sôi bên ngoài ấm trà từ trên xuống để giữ độ nóng và hãm trà",
+      "Rót trà ra tách và thưởng thức trà",
+      "Trà Oolong Tân Long có thể pha được 4-5 nước vẫn còn hương vị"
+    ],
+    isBest: false
   },
 
   // Kimchi & Rau Chua

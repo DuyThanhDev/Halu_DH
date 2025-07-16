@@ -91,7 +91,7 @@ const Home: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden">
         <img
           src={bannerImages[currentSlide]}
           alt="Banner"

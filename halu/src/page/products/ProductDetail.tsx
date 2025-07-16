@@ -18,6 +18,32 @@ const ProductDetail: React.FC = () => {
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [currentRelatedIndex, setCurrentRelatedIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+
+  // Auto slide for related products
+  useEffect(() => {
+    if (relatedProducts.length > 4 && !isUserInteracting) {
+      const interval = setInterval(() => {
+        setCurrentRelatedIndex((prev) => {
+          const nextIndex = prev + 4;
+          return nextIndex >= relatedProducts.length ? 0 : nextIndex;
+        });
+      }, 10000); // 10 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [relatedProducts.length, isUserInteracting]);
+
+  // Reset user interaction after 10 seconds of inactivity
+  useEffect(() => {
+    if (isUserInteracting) {
+      const timeout = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 10000); // Resume auto-slide after 10 seconds of no interaction
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isUserInteracting]);
 
   useEffect(() => {
     // Get product from localStorage or fetch by ID
@@ -48,25 +74,27 @@ const ProductDetail: React.FC = () => {
   }, [id]);
 
   const handleBuyNow = () => {
-    // Handle buy now action
-    alert("Chức năng mua hàng sẽ được triển khai sau!");
-  };
-
-  const handleRelatedProductClick = (relatedProduct: Product) => {
-    localStorage.setItem("selectedProduct", JSON.stringify(relatedProduct));
-    navigate(`/products/${relatedProduct.id}`);
+    // Navigate to contact page and scroll to top
+    navigate("/contact");
+    window.scrollTo(0, 0);
   };
 
   const nextRelatedProducts = () => {
-    setCurrentRelatedIndex((prev) =>
-      prev + 4 >= relatedProducts.length ? 0 : prev + 4
-    );
+    setIsUserInteracting(true); // User clicked, pause auto-slide
+    setCurrentRelatedIndex((prev) => {
+      const nextIndex = prev + 4;
+      return nextIndex >= relatedProducts.length ? 0 : nextIndex;
+    });
   };
 
   const prevRelatedProducts = () => {
-    setCurrentRelatedIndex((prev) =>
-      prev - 4 < 0 ? Math.max(0, relatedProducts.length - 4) : prev - 4
-    );
+    setIsUserInteracting(true); // User clicked, pause auto-slide
+    setCurrentRelatedIndex((prev) => {
+      const prevIndex = prev - 4;
+      return prevIndex < 0
+        ? Math.max(0, relatedProducts.length - 4)
+        : prevIndex;
+    });
   };
 
   if (!product) {
@@ -78,7 +106,7 @@ const ProductDetail: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[400px] overflow-hidden">
+      <section className="relative w-full h-[500px] overflow-hidden">
         <img
           src="/src/assets/banner-1-011.png"
           alt="NPFOOD Product"
@@ -98,11 +126,7 @@ const ProductDetail: React.FC = () => {
             {/* Left Side (1/2) - Images Section */}
             <div className="flex gap-4">
               {/* Thumbnail Images - 2/5 of left side */}
-              <div className="w-2/5">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  Hình ảnh sản phẩm
-                </h3>
-
+              <div className="w-1/5 mt-6">
                 <div className="relative">
                   {/* Up button */}
                   {product.images.length > 4 && (
@@ -110,7 +134,8 @@ const ProductDetail: React.FC = () => {
                       onClick={() =>
                         setCurrentImageIndex((prev) => Math.max(0, prev - 1))
                       }
-                      className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      className="absolute -top-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      style={{ transform: "translate(-50%, 0)" }}
                       disabled={currentImageIndex === 0}
                     >
                       <svg
@@ -162,7 +187,8 @@ const ProductDetail: React.FC = () => {
                           Math.min(product.images.length - 4, prev + 1)
                         )
                       }
-                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      className="absolute -bottom-9 left-1/2 -translate-x-1/2 bg-[#77b843] text-white p-1 rounded-full shadow-lg hover:bg-[#5a8a2f] z-10 disabled:opacity-50"
+                      style={{ transform: "translate(-50%, 0)" }}
                       disabled={currentImageIndex >= product.images.length - 4}
                     >
                       <svg
@@ -184,12 +210,12 @@ const ProductDetail: React.FC = () => {
               </div>
 
               {/* Main Image - 3/5 of left side */}
-              <div className="w-3/5 flex items-center justify-center">
+              <div className="w-4/5 flex items-center justify-center">
                 <div className="w-full">
                   <img
                     src={selectedImage || product.mainImage}
                     alt={product.name}
-                    className="w-full h-auto object-contain max-h-96"
+                    className="w-full h-auto object-contain max-h-[32rem]"
                   />
                 </div>
               </div>
@@ -201,7 +227,7 @@ const ProductDetail: React.FC = () => {
                 <h1 className="text-4xl font-bold text-[#77b843] mb-6 uppercase leading-tight">
                   {product.name}
                 </h1>
-                <p className="text-gray-700 text-xl leading-relaxed mb-8">
+                <p className="text-gray-700 text-xl leading-relaxed mb-8 text-justify">
                   {product.description}
                 </p>
                 <div className="text-4xl font-bold text-[#77b843] mb-10">
@@ -209,7 +235,7 @@ const ProductDetail: React.FC = () => {
                 </div>
                 <button
                   onClick={handleBuyNow}
-                  className="w-full bg-[#77b843] text-white py-5 px-8 rounded-lg text-xl font-semibold 
+                  className="w-3/5 bg-[#77b843] text-white py-5 px-8 rounded-lg text-xl font-semibold 
                              hover:bg-[#5a8a2f] transform hover:scale-105 transition-all duration-300 
                              shadow-lg hover:shadow-xl active:scale-95"
                 >
@@ -221,55 +247,67 @@ const ProductDetail: React.FC = () => {
         </div>
       </section>
 
+      {/* Green horizontal line above product info */}
+      <div className="container mx-auto px-4 md:px-6">
+        <hr className="border-t-4 border-[#77b843] mb-8" />
+      </div>
+
       {/* Detailed Product Information */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              {product.name}
-            </h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-8">
+            {product.name}
+          </h2>
 
-            <div className="space-y-4 mb-8">
-              <div>
-                <span className="font-semibold text-gray-700">
-                  Thành phần:{" "}
-                </span>
-                <span className="text-gray-600">{product.ingredients}</span>
-              </div>
-              <div>
-                <span className="font-semibold text-gray-700">Hình dáng: </span>
-                <span className="text-gray-600">{product.appearance}</span>
-              </div>
-              <div>
-                <span className="font-semibold text-gray-700">
-                  Chỉ dẫn hương vị:{" "}
-                </span>
-                <span className="text-gray-600">{product.taste}</span>
-              </div>
-            </div>
-
+          <div className="space-y-6 mb-10">
             <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                {product.category === "Trà"
-                  ? "Hướng dẫn pha trà"
-                  : "Hướng dẫn sử dụng"}
-              </h3>
-              <ul className="space-y-2">
-                {product.instructions.map((instruction, index) => (
-                  <li key={index} className="text-gray-600 leading-relaxed">
-                    {index + 1}. {instruction}
-                  </li>
-                ))}
-              </ul>
+              <span className="font-semibold text-gray-700 text-xl">
+                Thành phần:{" "}
+              </span>
+              <span className="text-gray-600 text-xl">
+                {product.ingredients}
+              </span>
             </div>
+            <div>
+              <span className="font-semibold text-gray-700 text-xl">
+                Hình dáng:{" "}
+              </span>
+              <span className="text-gray-600 text-xl">
+                {product.appearance}
+              </span>
+            </div>
+            <div>
+              <span className="font-semibold text-gray-700 text-xl">
+                Chỉ dẫn hương vị:{" "}
+              </span>
+              <span className="text-gray-600 text-xl">{product.taste}</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+              {product.category === "Trà"
+                ? "Hướng dẫn pha trà"
+                : "Hướng dẫn sử dụng"}
+            </h3>
+            <ul className="space-y-3">
+              {product.instructions.map((instruction, index) => (
+                <li
+                  key={index}
+                  className="text-gray-600 text-xl leading-relaxed"
+                >
+                  {index + 1}. {instruction}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       {/* Related Products */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-[#77b843] text-center mb-8">
+          <h2 className="text-4xl font-bold text-[#77b843] text-center mb-12">
             SẢN PHẨM CÙNG LOẠI
           </h2>
 
@@ -316,29 +354,38 @@ const ProductDetail: React.FC = () => {
             </button>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-12">
               {relatedProducts
                 .slice(currentRelatedIndex, currentRelatedIndex + 4)
-                .map((relatedProduct) => (
+                .map((relatedProduct, idx) => (
                   <div
                     key={relatedProduct.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                    className="flex flex-col items-center justify-center transition-transform duration-700 ease-out animate-fade-in group"
+                    style={{
+                      animationDelay: `${idx * 100}ms`,
+                      animationFillMode: "backwards",
+                    }}
                   >
-                    <div className="h-48 flex items-center justify-center p-4">
+                    <div className="h-80 flex items-center justify-center p-2">
                       <img
                         src={relatedProduct.mainImage}
                         alt={relatedProduct.name}
-                        className="max-w-full max-h-full object-contain"
+                        className="max-w-full max-h-full object-contain scale-110 transition-transform duration-300 group-hover:scale-125"
+                        style={{ width: "220px", height: "220px" }}
                       />
                     </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-4 h-12 flex items-center">
+                    <div className="p-4 w-full flex flex-col items-center">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-4 h-14 flex items-center text-center">
                         {relatedProduct.name}
                       </h3>
                       <button
-                        onClick={() =>
-                          handleRelatedProductClick(relatedProduct)
-                        }
+                        onClick={() => {
+                          localStorage.setItem(
+                            "selectedProduct",
+                            JSON.stringify(relatedProduct)
+                          );
+                          window.location.href = `/products/${relatedProduct.id}`;
+                        }}
                         className="w-full bg-transparent border-2 border-[#77b843] text-[#77b843] py-2 px-4 rounded-lg font-semibold hover:bg-[#77b843] hover:text-white transition-all duration-300"
                       >
                         XEM CHI TIẾT →
@@ -349,6 +396,26 @@ const ProductDetail: React.FC = () => {
             </div>
           </div>
         </div>
+        <style>
+          {`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+        }
+        .group:hover img {
+          transform: scale(1.25);
+        }
+          `}
+        </style>
       </section>
 
       {/* Footer */}
