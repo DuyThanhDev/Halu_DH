@@ -25,9 +25,9 @@ const Header: React.FC = () => {
             width={32}
             height={32}
           />
-          <span className="text-lg font-semibold text-white">
+            <Link to="/" onClick={scrollToTop} className="text-lg font-semibold text-white">
             NP Food Viet Nam
-          </span>
+            </Link>
         </a>
       </div>
       <nav className="hidden md:flex items-center gap-0 text-lg font-medium mr-20">
