@@ -11,9 +11,9 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   const bannerImages = [
-    "/assets/banner-8-1920x932-01.png",
-    "/assets/banner-12-2.jpg",
-    "/assets/cong-cong-ty2.jpg",
+    "./assets/banner-8-1920x932-01.png",
+    "./assets/banner-12-2.jpg",
+    "./assets/cong-cong-ty2.jpg",
   ];
 
   // Get top 3 best products
@@ -181,7 +181,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
           <div className="relative h-80 md:h-[35rem] w-full">
             <img
-              src="/assets/san-xuong-bau-tre-2.jpg"
+              src="./assets/san-xuong-bau-tre-2.jpg"
               alt="NPFOOD Factory"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
