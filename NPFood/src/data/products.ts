@@ -19,11 +19,11 @@ export const products: Product[] = [
     id: "tra-001",
     name: "Trà Xanh Tân Long Hộp Giấy 100g",
     category: "Trà",
-    mainImage: "./assets/tra-xanh-100g.jpg",
+    mainImage: "/assets/tra-xanh-100g.jpg",
     images: [
-      "./assets/tra-xanh-100g.jpg",
-      "./assets/99x100x1-tra-xanh-125-2.jpg",
-      "./assets/99x100x1-tach-tra-xanh.jpg.jpg"
+      "/assets/tra-xanh-100g.jpg",
+      "/assets/99x100x1-tra-xanh-125-2.jpg",
+      "/assets/99x100x1-tach-tra-xanh.jpg.jpg"
     ],
     description: "Trà xanh Tân Long chất lượng cao được chế biến từ búp trà tươi ngon nhất.",
     price: "35,000 VNĐ",
@@ -42,9 +42,9 @@ export const products: Product[] = [
     id: "tra-002", 
     name: "Trà Oolong Tân Long Gold Class 320g",
     category: "Trà",
-    mainImage: "./assets/olong-gold-320g.jpg",
+    mainImage: "/assets/olong-gold-320g.jpg",
     images: [
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Oolong cao cấp với hương vị đặc trưng, có thể pha được nhiều lần.",
     price: "180,000 VNĐ",
@@ -66,13 +66,13 @@ export const products: Product[] = [
     id: "tra-003", 
     name: "Trà Oolong Tân Long Daily Class 100g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
     price: "69,000 VNĐ",
@@ -94,13 +94,13 @@ export const products: Product[] = [
     id: "tra-004", 
     name: "Trà Daily Oolong Tân Long Class 500g",
     category: "Trà",
-    mainImage: "./assets/olong-gold-320g.jpg",
+    mainImage: "/assets/olong-gold-320g.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
     price: "69,000 VNĐ",
@@ -122,13 +122,13 @@ export const products: Product[] = [
     id: "tra-005", 
     name: "Trà Long Class Xanh Tân 100g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
     price: "69,000 VNĐ",
@@ -150,13 +150,13 @@ export const products: Product[] = [
     id: "tra-006", 
     name: "Trà Class Xanh Tân Class 100g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
     price: "69,000 VNĐ",
@@ -178,13 +178,13 @@ export const products: Product[] = [
     id: "tra-007", 
     name: "Trà Oolong Class Xanh Tân 100g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà Ô Long Tân Long được tuyển chọn từ những búp trà Oolong non thượng hạng, trải qua quá trình thu hái lá trà cho đến sao chế , đóng thánh phẩm đều tuân thủ những nguyên tắc nghiêm ngặt. Cầm trên tay tách trà ngát hương, nhâm nhi trọn vị Trà Ô Long tinh tuý như là một cách thể hiện tâm tình đối với cuộc sống, cảm thụ hương vị tự nhiên toát ra từ lá trà, cảm thấy lòng an nhiên trước bao bộn bề. Điện thoại mua hàng : 028.36008101 - 028.39225005 Hotline : 093.1062070",
     price: "69,000 VNĐ",
@@ -207,13 +207,13 @@ export const products: Product[] = [
     id: "kimchi-001",
     name: "Kimchi Hàn Quốc MR LEE",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/kimchi-mr-lee-main.jpg",
+    mainImage: "/assets/products/kimchi-mr-lee-main.jpg",
     images: [
-      "./assets/products/kimchi-mr-lee-1.jpg",
-      "./assets/products/kimchi-mr-lee-2.jpg",
-      "./assets/products/kimchi-mr-lee-3.jpg",
-      "./assets/products/kimchi-mr-lee-4.jpg",
-      "./assets/products/kimchi-mr-lee-5.jpg"
+      "/assets/products/kimchi-mr-lee-1.jpg",
+      "/assets/products/kimchi-mr-lee-2.jpg",
+      "/assets/products/kimchi-mr-lee-3.jpg",
+      "/assets/products/kimchi-mr-lee-4.jpg",
+      "/assets/products/kimchi-mr-lee-5.jpg"
     ],
     description: "Kimchi Hàn Quốc đậm đà hương vị truyền thống, chua cay vừa phải.",
     price: "45,000đ",
@@ -231,11 +231,11 @@ export const products: Product[] = [
     id: "rau-chua-001",
     name: "Rau Củ Quả NGỌC PHÚ",
     category: "Kimchi, Rau Chua", 
-    mainImage: "./assets/products/rau-chua-ngoc-phu-main.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-main.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-1.jpg",
-      "./assets/products/rau-chua-ngoc-phu-2.jpg",
-      "./assets/products/rau-chua-ngoc-phu-3.jpg"
+      "/assets/products/rau-chua-ngoc-phu-1.jpg",
+      "/assets/products/rau-chua-ngoc-phu-2.jpg",
+      "/assets/products/rau-chua-ngoc-phu-3.jpg"
     ],
     description: "Rau củ quả muối chua tươi ngon, giòn ngọt tự nhiên.",
     price: "25,000đ",
@@ -255,12 +255,12 @@ export const products: Product[] = [
     id: "banh-trang-001",
     name: "Bánh Tráng Kim's Đặc Biệt",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-main.jpg",
+    mainImage: "/assets/products/banh-trang-kims-main.jpg",
     images: [
-      "./assets/products/banh-trang-kims-1.jpg",
-      "./assets/products/banh-trang-kims-2.jpg",
-      "./assets/products/banh-trang-kims-3.jpg",
-      "./assets/products/banh-trang-kims-4.jpg"
+      "/assets/products/banh-trang-kims-1.jpg",
+      "/assets/products/banh-trang-kims-2.jpg",
+      "/assets/products/banh-trang-kims-3.jpg",
+      "/assets/products/banh-trang-kims-4.jpg"
     ],
     description: "Bánh tráng giòn tan, thơm ngon được làm từ gạo tẻ cao cấp.",
     price: "15,000đ",
@@ -278,11 +278,11 @@ export const products: Product[] = [
     id: "banh-trang-002",
     name: "Bánh Tráng Kim's Mè",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-me-main.jpg",
+    mainImage: "/assets/products/banh-trang-me-main.jpg",
     images: [
-      "./assets/products/banh-trang-me-1.jpg",
-      "./assets/products/banh-trang-me-2.jpg",
-      "./assets/products/banh-trang-me-3.jpg"
+      "/assets/products/banh-trang-me-1.jpg",
+      "/assets/products/banh-trang-me-2.jpg",
+      "/assets/products/banh-trang-me-3.jpg"
     ],
     description: "Bánh tráng mè thơm béo, giòn rụm với hương vị đặc trưng.",
     price: "18,000đ",
@@ -302,10 +302,10 @@ export const products: Product[] = [
     id: "tra-008",
     name: "Trà Đen Tân Long Đặc Biệt 200g",
     category: "Trà",
-    mainImage: "./assets/tra-xanh-100g.jpg",
+    mainImage: "/assets/tra-xanh-100g.jpg",
     images: [
-      "./assets/tra-xanh-100g.jpg",
-      "./assets/99x100x1-tra-xanh-125-2.jpg"
+      "/assets/tra-xanh-100g.jpg",
+      "/assets/99x100x1-tra-xanh-125-2.jpg"
     ],
     description: "Trà đen thượng hạng với hương vị đậm đà, thích hợp uống buổi sáng.",
     price: "85,000 VNĐ",
@@ -324,10 +324,10 @@ export const products: Product[] = [
     id: "tra-009",
     name: "Trà Lài Tân Long Premium 150g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg"
     ],
     description: "Trà lài thơm ngát với hương hoa nhài tự nhiên, thanh mát dễ uống.",
     price: "120,000 VNĐ",
@@ -346,9 +346,9 @@ export const products: Product[] = [
     id: "tra-010",
     name: "Trà Atiso Tân Long 100g",
     category: "Trà",
-    mainImage: "./assets/olong-gold-320g.jpg",
+    mainImage: "/assets/olong-gold-320g.jpg",
     images: [
-      "./assets/olong-gold-320g.jpg"
+      "/assets/olong-gold-320g.jpg"
     ],
     description: "Trà atiso giúp thanh nhiệt, mát gan, tốt cho sức khỏe.",
     price: "65,000 VNĐ",
@@ -367,10 +367,10 @@ export const products: Product[] = [
     id: "tra-011",
     name: "Trà Oolong Tân Long Special 250g",
     category: "Trà",
-    mainImage: "./assets/99x100x1-tach-tra-olong.jpg",
+    mainImage: "/assets/99x100x1-tach-tra-olong.jpg",
     images: [
-      "./assets/99x100x1-tach-tra-olong.jpg",
-      "./assets/olong-goi-100g-2022.jpg"
+      "/assets/99x100x1-tach-tra-olong.jpg",
+      "/assets/olong-goi-100g-2022.jpg"
     ],
     description: "Trà Oolong đặc biệt với quy trình sản xuất truyền thống, hương vị tinh tế.",
     price: "200,000 VNĐ",
@@ -389,10 +389,10 @@ export const products: Product[] = [
     id: "tra-012",
     name: "Trà Xanh Tân Long Hộp Thiếc 200g",
     category: "Trà",
-    mainImage: "./assets/99x100x1-tra-xanh-125-2.jpg",
+    mainImage: "/assets/99x100x1-tra-xanh-125-2.jpg",
     images: [
-      "./assets/99x100x1-tra-xanh-125-2.jpg",
-      "./assets/tra-xanh-100g.jpg"
+      "/assets/99x100x1-tra-xanh-125-2.jpg",
+      "/assets/tra-xanh-100g.jpg"
     ],
     description: "Trà xanh cao cấp đóng hộp thiếc sang trọng, bảo quản tốt hương vị.",
     price: "150,000 VNĐ",
@@ -413,10 +413,10 @@ export const products: Product[] = [
     id: "kimchi-002",
     name: "Kimchi Cải Thảo MR LEE Cay Nồng",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/kimchi-mr-lee-main.jpg",
+    mainImage: "/assets/products/kimchi-mr-lee-main.jpg",
     images: [
-      "./assets/products/kimchi-mr-lee-1.jpg",
-      "./assets/products/kimchi-mr-lee-2.jpg"
+      "/assets/products/kimchi-mr-lee-1.jpg",
+      "/assets/products/kimchi-mr-lee-2.jpg"
     ],
     description: "Kimchi cải thảo cay nồng đậm đà, phù hợp với khẩu vị Việt Nam.",
     price: "55,000đ",
@@ -434,10 +434,10 @@ export const products: Product[] = [
     id: "kimchi-003",
     name: "Kimchi Củ Cải Trắng MR LEE",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/kimchi-mr-lee-3.jpg",
+    mainImage: "/assets/products/kimchi-mr-lee-3.jpg",
     images: [
-      "./assets/products/kimchi-mr-lee-3.jpg",
-      "./assets/products/kimchi-mr-lee-4.jpg"
+      "/assets/products/kimchi-mr-lee-3.jpg",
+      "/assets/products/kimchi-mr-lee-4.jpg"
     ],
     description: "Kimchi củ cải trắng giòn ngọt, ít cay, phù hợp cho cả gia đình.",
     price: "48,000đ",
@@ -455,10 +455,10 @@ export const products: Product[] = [
     id: "rau-chua-002",
     name: "Dưa Chua NGỌC PHÚ Truyền Thống",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/rau-chua-ngoc-phu-main.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-main.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-1.jpg",
-      "./assets/products/rau-chua-ngoc-phu-2.jpg"
+      "/assets/products/rau-chua-ngoc-phu-1.jpg",
+      "/assets/products/rau-chua-ngoc-phu-2.jpg"
     ],
     description: "Dưa chua làm theo công thức truyền thống, vị chua ngọt chuẩn.",
     price: "30,000đ",
@@ -476,10 +476,10 @@ export const products: Product[] = [
     id: "rau-chua-003",
     name: "Củ Kiệu Muối Chua NGỌC PHÚ",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/rau-chua-ngoc-phu-3.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-3.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-3.jpg",
-      "./assets/products/rau-chua-ngoc-phu-2.jpg"
+      "/assets/products/rau-chua-ngoc-phu-3.jpg",
+      "/assets/products/rau-chua-ngoc-phu-2.jpg"
     ],
     description: "Củ kiệu muối chua giòn ngọt, ăn kèm phở và bún bò rất ngon.",
     price: "35,000đ",
@@ -497,10 +497,10 @@ export const products: Product[] = [
     id: "rau-chua-004",
     name: "Cà Rót Muối Chua NGỌC PHÚ",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/rau-chua-ngoc-phu-1.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-1.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-1.jpg",
-      "./assets/products/rau-chua-ngoc-phu-main.jpg"
+      "/assets/products/rau-chua-ngoc-phu-1.jpg",
+      "/assets/products/rau-chua-ngoc-phu-main.jpg"
     ],
     description: "Cà rốt muối chua ngọt ngào, giàu vitamin, tốt cho sức khỏe.",
     price: "28,000đ",
@@ -520,10 +520,10 @@ export const products: Product[] = [
     id: "banh-trang-003",
     name: "Bánh Tráng Kim's Nướng Tỏi Ớt",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-main.jpg",
+    mainImage: "/assets/products/banh-trang-kims-main.jpg",
     images: [
-      "./assets/products/banh-trang-kims-1.jpg",
-      "./assets/products/banh-trang-kims-2.jpg"
+      "/assets/products/banh-trang-kims-1.jpg",
+      "/assets/products/banh-trang-kims-2.jpg"
     ],
     description: "Bánh tráng nướng tỏi ớt thơm nồng, cay đậm đà, ăn là ghiền.",
     price: "22,000đ",
@@ -541,10 +541,10 @@ export const products: Product[] = [
     id: "banh-trang-004",
     name: "Bánh Tráng Kim's Muối Tôm",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-3.jpg",
+    mainImage: "/assets/products/banh-trang-kims-3.jpg",
     images: [
-      "./assets/products/banh-trang-kims-3.jpg",
-      "./assets/products/banh-trang-kims-4.jpg"
+      "/assets/products/banh-trang-kims-3.jpg",
+      "/assets/products/banh-trang-kims-4.jpg"
     ],
     description: "Bánh tráng muối tôm đậm đà hương vị biển cả, thơm ngon khó cưỡng.",
     price: "25,000đ",
@@ -562,10 +562,10 @@ export const products: Product[] = [
     id: "banh-trang-005",
     name: "Bánh Tráng Kim's Tôm Khô",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-me-main.jpg",
+    mainImage: "/assets/products/banh-trang-me-main.jpg",
     images: [
-      "./assets/products/banh-trang-me-1.jpg",
-      "./assets/products/banh-trang-me-2.jpg"
+      "/assets/products/banh-trang-me-1.jpg",
+      "/assets/products/banh-trang-me-2.jpg"
     ],
     description: "Bánh tráng tôm khô giòn rụm, vị ngọt tự nhiên của tôm biển.",
     price: "35,000đ",
@@ -583,10 +583,10 @@ export const products: Product[] = [
     id: "banh-trang-006",
     name: "Bánh Tráng Kim's Hành Tím",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-me-3.jpg",
+    mainImage: "/assets/products/banh-trang-me-3.jpg",
     images: [
-      "./assets/products/banh-trang-me-3.jpg",
-      "./assets/products/banh-trang-kims-1.jpg"
+      "/assets/products/banh-trang-me-3.jpg",
+      "/assets/products/banh-trang-kims-1.jpg"
     ],
     description: "Bánh tráng hành tím thơm nồng, vị đậm đà đặc trưng miền Tây.",
     price: "20,000đ",
@@ -604,10 +604,10 @@ export const products: Product[] = [
     id: "banh-trang-007",
     name: "Bánh Tráng Kim's Siêu Mỏng",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-4.jpg",
+    mainImage: "/assets/products/banh-trang-kims-4.jpg",
     images: [
-      "./assets/products/banh-trang-kims-4.jpg",
-      "./assets/products/banh-trang-kims-main.jpg"
+      "/assets/products/banh-trang-kims-4.jpg",
+      "/assets/products/banh-trang-kims-main.jpg"
     ],
     description: "Bánh tráng siêu mỏng như giấy, giòn tan trong miệng, chất lượng cao.",
     price: "18,000đ",
@@ -627,10 +627,10 @@ export const products: Product[] = [
     id: "tra-013",
     name: "Trà Hoa Cúc Tân Long 80g",
     category: "Trà",
-    mainImage: "./assets/tra-xanh-100g.jpg",
+    mainImage: "/assets/tra-xanh-100g.jpg",
     images: [
-      "./assets/tra-xanh-100g.jpg",
-      "./assets/99x100x1-tach-tra-xanh.jpg.jpg"
+      "/assets/tra-xanh-100g.jpg",
+      "/assets/99x100x1-tach-tra-xanh.jpg.jpg"
     ],
     description: "Trà hoa cúc thơm dịu, giúp thư giãn và giải stress hiệu quả.",
     price: "75,000 VNĐ",
@@ -649,10 +649,10 @@ export const products: Product[] = [
     id: "kimchi-004",
     name: "Kimchi Hành Lá MR LEE",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/kimchi-mr-lee-5.jpg",
+    mainImage: "/assets/products/kimchi-mr-lee-5.jpg",
     images: [
-      "./assets/products/kimchi-mr-lee-5.jpg",
-      "./assets/products/kimchi-mr-lee-1.jpg"
+      "/assets/products/kimchi-mr-lee-5.jpg",
+      "/assets/products/kimchi-mr-lee-1.jpg"
     ],
     description: "Kimchi hành lá tươi ngon, thích hợp làm bánh xèo và các món nướng.",
     price: "42,000đ",
@@ -670,10 +670,10 @@ export const products: Product[] = [
     id: "banh-trang-008", 
     name: "Bánh Tráng Kim's Nướng Mắm Ruốc",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-2.jpg",
+    mainImage: "/assets/products/banh-trang-kims-2.jpg",
     images: [
-      "./assets/products/banh-trang-kims-2.jpg",
-      "./assets/products/banh-trang-me-1.jpg"
+      "/assets/products/banh-trang-kims-2.jpg",
+      "/assets/products/banh-trang-me-1.jpg"
     ],
     description: "Bánh tráng nướng mắm ruốc đậm đà hương vị đồng quê, thơm ngon khó quên.",
     price: "28,000đ",
@@ -691,10 +691,10 @@ export const products: Product[] = [
     id: "tra-014",
     name: "Trà Oolong Tân Long Royal 500g",
     category: "Trà",
-    mainImage: "./assets/olong-gold-320g.jpg",
+    mainImage: "/assets/olong-gold-320g.jpg",
     images: [
-      "./assets/olong-gold-320g.jpg",
-      "./assets/99x100x1-tach-tra-olong.jpg"
+      "/assets/olong-gold-320g.jpg",
+      "/assets/99x100x1-tach-tra-olong.jpg"
     ],
     description: "Trà Oolong Royal cao cấp nhất, dành cho những người sành trà.",
     price: "450,000 VNĐ",
@@ -713,10 +713,10 @@ export const products: Product[] = [
     id: "rau-chua-005",
     name: "Bắp Cải Muối Chua NGỌC PHÚ",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/rau-chua-ngoc-phu-2.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-2.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-2.jpg",
-      "./assets/products/rau-chua-ngoc-phu-main.jpg"
+      "/assets/products/rau-chua-ngoc-phu-2.jpg",
+      "/assets/products/rau-chua-ngoc-phu-main.jpg"
     ],
     description: "Bắp cải muối chua giòn ngọt, làm theo công thức gia truyền.",
     price: "32,000đ",
@@ -734,10 +734,10 @@ export const products: Product[] = [
     id: "banh-trang-009",
     name: "Bánh Tráng Kim's Cuốn Nem",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-me-2.jpg",
+    mainImage: "/assets/products/banh-trang-me-2.jpg",
     images: [
-      "./assets/products/banh-trang-me-2.jpg",
-      "./assets/products/banh-trang-kims-main.jpg"
+      "/assets/products/banh-trang-me-2.jpg",
+      "/assets/products/banh-trang-kims-main.jpg"
     ],
     description: "Bánh tráng mỏng đặc biệt dành cho cuốn nem, dẻo dai vừa phải.",
     price: "16,000đ",
@@ -757,10 +757,10 @@ export const products: Product[] = [
     id: "tra-015",
     name: "Trà Sen Tân Long Thượng Hạng 120g",
     category: "Trà",
-    mainImage: "./assets/99x100x1-tra-xanh-125-2.jpg",
+    mainImage: "/assets/99x100x1-tra-xanh-125-2.jpg",
     images: [
-      "./assets/99x100x1-tra-xanh-125-2.jpg",
-      "./assets/tra-xanh-100g.jpg"
+      "/assets/99x100x1-tra-xanh-125-2.jpg",
+      "/assets/tra-xanh-100g.jpg"
     ],
     description: "Trà sen thơm nhẹ nhàng, hương sen thanh khiết, giúp thư giãn tâm hồn.",
     price: "95,000 VNĐ",
@@ -779,10 +779,10 @@ export const products: Product[] = [
     id: "kimchi-005",
     name: "Kimchi Kim Chi Cay MR LEE Extra Hot",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/kimchi-mr-lee-2.jpg",
+    mainImage: "/assets/products/kimchi-mr-lee-2.jpg",
     images: [
-      "./assets/products/kimchi-mr-lee-2.jpg",
-      "./assets/products/kimchi-mr-lee-main.jpg"
+      "/assets/products/kimchi-mr-lee-2.jpg",
+      "/assets/products/kimchi-mr-lee-main.jpg"
     ],
     description: "Kimchi siêu cay dành cho những ai thích vị cay nồng, thử thách vị giác.",
     price: "58,000đ",
@@ -800,10 +800,10 @@ export const products: Product[] = [
     id: "banh-trang-010",
     name: "Bánh Tráng Kim's Nướng Chấm",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-me-3.jpg",
+    mainImage: "/assets/products/banh-trang-me-3.jpg",
     images: [
-      "./assets/products/banh-trang-me-3.jpg",
-      "./assets/products/banh-trang-kims-3.jpg"
+      "/assets/products/banh-trang-me-3.jpg",
+      "/assets/products/banh-trang-kims-3.jpg"
     ],
     description: "Bánh tráng nướng chấm đặc biệt, ăn kèm với tương ớt và mayonnaise.",
     price: "24,000đ",
@@ -821,10 +821,10 @@ export const products: Product[] = [
     id: "tra-016",
     name: "Trà Bí Đao Tân Long Detox 100g",
     category: "Trà",
-    mainImage: "./assets/olong-goi-100g-2022.jpg",
+    mainImage: "/assets/olong-goi-100g-2022.jpg",
     images: [
-      "./assets/olong-goi-100g-2022.jpg",
-      "./assets/99x100x1-goi-100g-2002_hong.jpg"
+      "/assets/olong-goi-100g-2022.jpg",
+      "/assets/99x100x1-goi-100g-2002_hong.jpg"
     ],
     description: "Trà bí đao giúp giảm cân, thanh lọc cơ thể, tốt cho sức khỏe.",
     price: "68,000 VNĐ",
@@ -843,10 +843,10 @@ export const products: Product[] = [
     id: "rau-chua-006",
     name: "Su Hào Muối Chua NGỌC PHÚ",
     category: "Kimchi, Rau Chua",
-    mainImage: "./assets/products/rau-chua-ngoc-phu-3.jpg",
+    mainImage: "/assets/products/rau-chua-ngoc-phu-3.jpg",
     images: [
-      "./assets/products/rau-chua-ngoc-phu-3.jpg",
-      "./assets/products/rau-chua-ngoc-phu-1.jpg"
+      "/assets/products/rau-chua-ngoc-phu-3.jpg",
+      "/assets/products/rau-chua-ngoc-phu-1.jpg"
     ],
     description: "Su hào muối chua giòn ngọt, thích hợp ăn kèm cơm và các món ăn mặn.",
     price: "29,000đ",
@@ -864,10 +864,10 @@ export const products: Product[] = [
     id: "banh-trang-011",
     name: "Bánh Tráng Kim's Nước Dừa",
     category: "Bánh Tráng",
-    mainImage: "./assets/products/banh-trang-kims-1.jpg",
+    mainImage: "/assets/products/banh-trang-kims-1.jpg",
     images: [
-      "./assets/products/banh-trang-kims-1.jpg",
-      "./assets/products/banh-trang-me-main.jpg"
+      "/assets/products/banh-trang-kims-1.jpg",
+      "/assets/products/banh-trang-me-main.jpg"
     ],
     description: "Bánh tráng nước dừa thơm béo, có vị ngọt tự nhiên của dừa tươi.",
     price: "21,000đ",

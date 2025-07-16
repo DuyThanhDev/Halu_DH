@@ -90,7 +90,7 @@ const Search: React.FC = () => {
       {/* Hero Section with Background Image */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <img
-          src="./assets/banner-san-pham-trang-chinh3-01.jpg"
+          src="/assets/banner-san-pham-trang-chinh3-01.jpg"
           alt="NPFOOD Search"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
