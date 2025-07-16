@@ -106,12 +106,41 @@ const ProductDetail: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[350px] sm:h-[400px] md:h-[500px] overflow-hidden">
+      <section className="relative w-full h-[300px] xs:h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
+        {/* Background Image với responsive positioning */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundImage: "url('/assets/banner-1-011.png')",
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+          }}
+        />
+
+        {/* Fallback Image cho compatibility tốt hơn */}
         <img
           src="/assets/banner-1-011.png"
-          alt="NPFOOD Product"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          alt="NPFOOD Product Detail"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
         />
+
+        {/* Overlay để tạo độ tương phản */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/25 z-5" />
+
+        {/* Optional content overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10 px-4">
+          <div className="text-center text-white opacity-0 hover:opacity-100 transition-opacity duration-500">
+            <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 sm:p-6 max-w-sm sm:max-w-md">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                Chi tiết sản phẩm
+              </h2>
+              <p className="text-sm sm:text-base opacity-90">
+                Thông tin đầy đủ về sản phẩm NPFOOD
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Header2 with Breadcrumb */}

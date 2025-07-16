@@ -17,7 +17,7 @@ const Header2: React.FC<Header2Props> = ({ breadcrumb }) => {
       case "/about":
         return "GIỚI THIỆU";
       case "/products":
-        return "Sản phẩm";
+        return "SẢN PHẨM";
       case "/contact":
         return "LIÊN HỆ";
       case "/news":

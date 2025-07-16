@@ -10,12 +10,37 @@ const About: React.FC = () => {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
+      <section className="relative w-full h-[300px] xs:h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
+        {/* Background Image với responsive positioning */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:bg-top md:bg-center z-0"
+          style={{
+            backgroundImage: "url('/assets/cong-cong-ty2.jpg')",
+            backgroundPosition: "center 30%", // Hiển thị phần quan trọng trên mobile
+            backgroundSize: "cover",
+          }}
+        />
+
+        {/* Fallback Image với responsive object positioning */}
         <img
           src="/assets/cong-cong-ty2.jpg"
           alt="NPFOOD Company"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover object-center sm:object-top md:object-center lg:object-center z-0"
+          style={{
+            objectPosition: "center 30%", // Đảm bảo phần quan trọng luôn hiển thị
+          }}
+          loading="lazy"
         />
+
+        {/* Overlay nhẹ để tăng độ tương phản */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 z-10" />
+
+        {/* Container cho nội dung overlay nếu cần */}
+        <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
+          <div className="text-center text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
+            {/* Có thể thêm title hoặc breadcrumb nếu cần */}
+          </div>
+        </div>
       </section>
 
       {/* Header2 */}

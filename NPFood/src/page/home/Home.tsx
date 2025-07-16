@@ -91,24 +91,41 @@ const Home: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden">
+      <section className="relative w-full h-[300px] xs:h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px] overflow-hidden">
+        {/* Background Image với responsive positioning */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 transition-all duration-700"
+          style={{
+            backgroundImage: `url('${bannerImages[currentSlide]}')`,
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+          }}
+        />
+
+        {/* Fallback Image cho compatibility tốt hơn */}
         <img
           src={bannerImages[currentSlide]}
           alt="Banner"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 transition-opacity duration-700"
+          loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-r flex items-center justify-center p-4 md:p-8">
+
+        {/* Overlay để tăng độ tương phản cho các controls */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 z-5" />
+
+        <div className="absolute inset-0 flex items-center justify-center p-4 md:p-8 z-10">
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Left arrow */}
             <button
               onClick={prevSlide}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/60 hover:bg-white/80 backdrop-blur-sm rounded-full p-2 sm:p-3 text-gray-800 shadow-lg transition-all duration-300 z-20"
+              aria-label="Previous slide"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                className="sm:w-6 sm:h-6"
+                width="16"
+                height="16"
+                className="sm:w-5 sm:h-5 md:w-6 md:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -123,13 +140,14 @@ const Home: React.FC = () => {
             {/* Right arrow */}
             <button
               onClick={nextSlide}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 text-gray-800 hover:bg-white/70 z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/60 hover:bg-white/80 backdrop-blur-sm rounded-full p-2 sm:p-3 text-gray-800 shadow-lg transition-all duration-300 z-20"
+              aria-label="Next slide"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                className="sm:w-6 sm:h-6"
+                width="16"
+                height="16"
+                className="sm:w-5 sm:h-5 md:w-6 md:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -142,14 +160,17 @@ const Home: React.FC = () => {
             </button>
 
             {/* Slide indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
               {bannerImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                    index === currentSlide ? "bg-white" : "bg-white/50"
+                  className={`w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "bg-white shadow-md scale-110"
+                      : "bg-white/60 hover:bg-white/80"
                   }`}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
@@ -157,7 +178,7 @@ const Home: React.FC = () => {
             {/* Scroll down button */}
             <button
               onClick={scrollToAbout}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-sm rounded-full p-3 text-white hover:bg-white/30 transition-all duration-300 animate-bounce z-10"
+              className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 bg-white/30 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 sm:p-3 text-white shadow-lg transition-all duration-300 animate-bounce z-20"
               aria-label="Scroll to next section"
             >
               <svg
