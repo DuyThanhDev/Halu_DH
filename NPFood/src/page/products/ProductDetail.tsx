@@ -108,7 +108,7 @@ const ProductDetail: React.FC = () => {
       {/* Hero Section with Background Image */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <img
-          src="/src/assets/banner-1-011.png"
+          src="/assets/banner-1-011.png"
           alt="NPFOOD Product"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
