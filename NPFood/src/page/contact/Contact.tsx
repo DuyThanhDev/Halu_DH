@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
       {/* Hero Section with Background Image */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <img
-          src="/assets/cong-cong-ty2.jpg"
+          src="./assets/cong-cong-ty2.jpg"
           alt="NPFOOD Company"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
               <div className="flex-shrink-0">
                 <div className="bg-white rounded-xl shadow-xl p-4 flex items-center justify-center border border-gray-200">
                   <img
-                    src="/assets/logo-npfood_xanh-01.png"
+                    src="./assets/logo-npfood_xanh-01.png"
                     alt="NPFOOD Logo"
                     className="h-20 w-auto"
                   />
