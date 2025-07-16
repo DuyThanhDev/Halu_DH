@@ -22,6 +22,8 @@ const Header2: React.FC<Header2Props> = ({ breadcrumb }) => {
         return "LIÊN HỆ";
       case "/news":
         return "TIN TỨC";
+      case "/search":
+        return "TÌM KIẾM";
       default:
         return null;
     }

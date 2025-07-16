@@ -1,11 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery("");
+    }
   };
 
   const scrollToTop = () => {
@@ -25,9 +36,13 @@ const Header: React.FC = () => {
             width={32}
             height={32}
           />
-            <Link to="/" onClick={scrollToTop} className="text-lg font-semibold text-white">
+          <Link
+            to="/"
+            onClick={scrollToTop}
+            className="text-lg font-semibold text-white"
+          >
             NP Food Viet Nam
-            </Link>
+          </Link>
         </a>
       </div>
       <nav className="hidden md:flex items-center gap-0 text-lg font-medium mr-20">
@@ -118,9 +133,11 @@ const Header: React.FC = () => {
           </button>
           {isSearchOpen && (
             <div className="absolute top-full right-6 mt-2 bg-white shadow-lg rounded-lg p-4 min-w-[300px] z-50">
-              <form className="flex">
+              <form onSubmit={handleSearch} className="flex">
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Nhập nội dung tìm kiếm"
                   className="flex-1 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"
                 />

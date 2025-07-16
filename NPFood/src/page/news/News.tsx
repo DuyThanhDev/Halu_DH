@@ -1,20 +1,20 @@
 import type React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Header2 from "../../components/Header2";
 import {
-  newsData,
   newsCategories,
   getNewsByCategory,
   formatNewsDate,
-  type NewsItem,
 } from "../../data/news";
 
 const News: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("Tất cả");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [newsPerPage] = useState<number>(12);
+  const navigate = useNavigate();
 
   const filteredNews = getNewsByCategory(selectedCategory);
 
@@ -42,6 +42,11 @@ const News: React.FC = () => {
     setCurrentPage(1);
   };
 
+  // Handle news click
+  const handleNewsClick = (newsId: string) => {
+    navigate(`/news/${newsId}`);
+  };
+
   // Function to truncate text to specific word count
   const truncateText = (text: string, wordLimit: number = 20): string => {
     const words = text.split(" ");
@@ -56,7 +61,7 @@ const News: React.FC = () => {
       {/* Hero Section with Background Image */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <img
-          src="/src/assets/banner-1-011.png"
+          src="/src/assets/no-image-bg.png"
           alt="NPFOOD Kimchi"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -99,6 +104,7 @@ const News: React.FC = () => {
               return (
                 <article
                   key={news.id}
+                  onClick={() => handleNewsClick(news.id)}
                   className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
                 >
                   {/* News Image */}
@@ -141,7 +147,13 @@ const News: React.FC = () => {
                       <div className="text-sm text-gray-500">
                         Bởi {news.author}
                       </div>
-                      <button className="text-[#77b843] font-semibold hover:text-[#5a8a2f] transition-colors">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleNewsClick(news.id);
+                        }}
+                        className="text-[#77b843] font-semibold hover:text-[#5a8a2f] transition-colors"
+                      >
                         Đọc thêm →
                       </button>
                     </div>
