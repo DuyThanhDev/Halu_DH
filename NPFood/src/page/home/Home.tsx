@@ -1,6 +1,7 @@
 import type React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { RightOutlined } from "@ant-design/icons";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { getTop3BestProducts, type Product } from "../../data/products";
@@ -8,7 +9,16 @@ import { getTop3BestProducts, type Product } from "../../data/products";
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [visibleElements, setVisibleElements] = useState<Set<string>>(
+    new Set()
+  );
   const navigate = useNavigate();
+
+  // Refs cho các phần tử cần animation
+  const aboutImageRef = useRef<HTMLDivElement>(null);
+  const aboutTextRef = useRef<HTMLDivElement>(null);
+  const featuredTitleRef = useRef<HTMLHeadingElement>(null);
+  const featuredProductsRef = useRef<HTMLDivElement>(null);
 
   const bannerImages = [
     "./assets/banner-8-1920x932-01.png",
@@ -18,6 +28,43 @@ const Home: React.FC = () => {
 
   // Get top 3 best products
   const featuredProducts = getTop3BestProducts();
+
+  // Intersection Observer để theo dõi khi phần tử xuất hiện
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const elementId = entry.target.getAttribute("data-animation-id");
+            if (elementId) {
+              setVisibleElements((prev) => new Set([...prev, elementId]));
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Kích hoạt khi 10% phần tử hiển thị
+        rootMargin: "0px 0px -50px 0px", // Offset để animation sớm hơn một chút
+      }
+    );
+
+    // Đăng ký theo dõi các phần tử
+    const elementsToObserve = [
+      { ref: aboutImageRef, id: "about-image" },
+      { ref: aboutTextRef, id: "about-text" },
+      { ref: featuredTitleRef, id: "featured-title" },
+      { ref: featuredProductsRef, id: "featured-products" },
+    ];
+
+    elementsToObserve.forEach(({ ref, id }) => {
+      if (ref.current) {
+        ref.current.setAttribute("data-animation-id", id);
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Handle product click
   const handleProductClick = (product: Product) => {
@@ -87,6 +134,45 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* CSS cho animation Float In */}
+      <style>{`
+        .float-in {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .float-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .float-in-left {
+          opacity: 0;
+          transform: translateX(-50px);
+          transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .float-in-left.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        .float-in-right {
+          opacity: 0;
+          transform: translateX(50px);
+          transition: all 0.8s cubic-bezier(0.45, 0.46, 0.45, 0.94);
+        }
+        
+        .float-in-right.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        .stagger-children > * {
+          transition-delay: calc(var(--stagger-delay, 0) * 0.15s);
+        }
+      `}</style>
       {/* Header */}
       <Header />
 
@@ -203,14 +289,24 @@ const Home: React.FC = () => {
       {/* About Section */}
       <section id="about-section" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="relative h-64 sm:h-80 md:h-[25rem] lg:h-[35rem] w-full">
+          <div
+            ref={aboutImageRef}
+            className={`relative h-64 sm:h-80 md:h-[25rem] lg:h-[35rem] w-full float-in-left ${
+              visibleElements.has("about-image") ? "visible" : ""
+            }`}
+          >
             <img
               src="./assets/san-xuong-bau-tre-2.jpg"
               alt="NPFOOD Factory"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="space-y-4 md:space-y-6">
+          <div
+            ref={aboutTextRef}
+            className={`space-y-4 md:space-y-6 float-in-right ${
+              visibleElements.has("about-text") ? "visible" : ""
+            }`}
+          >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
               Đôi nét về
             </h2>
@@ -253,9 +349,28 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={handleLearnMore}
-              className="bg-[#77b843] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md hover:bg-[#77b843] transition-colors text-sm sm:text-base"
+              className="relative bg-[#77b843] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md 
+                   hover:scale-105 active:scale-95 
+                   transform transition-all duration-300 ease-in-out
+                   text-sm sm:text-base font-medium
+                   border-2 border-[#77b843] hover:border-white
+                   overflow-hidden group flex items-center gap-2"
             >
-              TÌM HIỂU THÊM
+              {/* Lớp nền chuyển màu từ trái sang phải */}
+              <span
+                className="absolute inset-0 bg-white transform -translate-x-full 
+                      group-hover:translate-x-0 transition-transform duration-500 ease-out"
+              ></span>
+
+              {/* Text với hiệu ứng chuyển màu */}
+              <span className="relative z-10 group-hover:text-[#77b843] transition-colors duration-500 flex items-center gap-2">
+                TÌM HIỂU THÊM
+                {/* Ant Design RightOutlined icon */}
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  {/* import { RightOutlined } from '@ant-design/icons'; ở đầu file */}
+                  <RightOutlined />
+                </span>
+              </span>
             </button>
           </div>
         </div>
@@ -264,11 +379,26 @@ const Home: React.FC = () => {
       {/* Featured Products Section */}
       <section className="py-12 md:py-20 white">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#77b843] mb-2">
+          <h2
+            ref={featuredTitleRef}
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#77b843] mb-2 float-in ${
+              visibleElements.has("featured-title") ? "visible" : ""
+            }`}
+          >
             SẢN PHẨM NỔI BẬT
           </h2>
-          <div className="w-24 h-1 bg-[#77b843] mx-auto mb-8 md:mb-10" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          <div
+            className={`w-24 h-1 bg-[#77b843] mx-auto mb-8 md:mb-10 float-in ${
+              visibleElements.has("featured-title") ? "visible" : ""
+            }`}
+            style={{ transitionDelay: "0.4s" }}
+          />
+          <div
+            ref={featuredProductsRef}
+            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 stagger-children float-in ${
+              visibleElements.has("featured-products") ? "visible" : ""
+            }`}
+          >
             {featuredProducts.map((product) => (
               <div
                 key={product.id}
