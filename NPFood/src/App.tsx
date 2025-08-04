@@ -8,6 +8,17 @@ import ProductDetail from "./page/products/ProductDetail";
 import Products from "./page/products/Products";
 import NewsDetail from "./page/news/NewsDetail";
 import Search from "./page/search/Search";
+import LoginAdminPage from "./page/admin/loginAdmin/loginAdminPage";
+import ManagementHomePage from "./page/admin/managementHome/managementHomePage";
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+
+
+// Component bảo vệ route admin
+const RequireAdminAuth: React.FC = () => {
+  const isLoggedIn = localStorage.getItem("admin_logged_in") === "true";
+  return isLoggedIn ? <Outlet /> : <Navigate to="/admin/login" replace />;
+};
 
 function App() {
   return (
@@ -22,7 +33,15 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/search" element={<Search />} />
-          {/* Add more routes as needed */}
+
+          {/* Route đăng nhập admin */}
+          <Route path="/admin/login" element={<LoginAdminPage />} />
+
+          {/* Các route admin cần đăng nhập */}
+          <Route path="/admin" element={<RequireAdminAuth />}>
+            <Route path="managementHome" element={<ManagementHomePage />} />
+            {/* Thêm các route admin khác ở đây */}
+          </Route>
         </Routes>
       </div>
     </Router>
