@@ -36,7 +36,7 @@ const initialFeatured = allProducts.slice(0, 3).map((p) => p.id);
 const ManagementHomePage: React.FC = () => {
   // State quản lý banner
   const [banners, setBanners] = useState<string[]>(initialBanners);
-  const [newBanner, setNewBanner] = useState<string>("");
+  const [] = useState<string>("");
 
   // State quản lý about
   const [about, setAbout] = useState({ ...initialAbout });

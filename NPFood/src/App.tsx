@@ -13,6 +13,7 @@ import ManagementHomePage from "./page/admin/managementHome/managementHomePage";
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import ManagementAboutPage from "./page/admin/managemntAbout/managementAboutPage";
+import ManagementContactPage from "./page/admin/managementContact/managementContactPage";
 
 
 // Component bảo vệ route admin
@@ -42,6 +43,7 @@ function App() {
           <Route path="/admin" element={<RequireAdminAuth />}>
             <Route path="managementHome" element={<ManagementHomePage />} />
             <Route path="managementAbout" element={<ManagementAboutPage />} />
+            <Route path="managementContact" element={<ManagementContactPage />} />
           </Route>
         </Routes>
       </div>
