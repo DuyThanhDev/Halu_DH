@@ -12,6 +12,7 @@ import LoginAdminPage from "./page/admin/loginAdmin/loginAdminPage";
 import ManagementHomePage from "./page/admin/managementHome/managementHomePage";
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import ManagementAboutPage from "./page/admin/managemntAbout/managementAboutPage";
 
 
 // Component bảo vệ route admin
@@ -40,7 +41,7 @@ function App() {
           {/* Các route admin cần đăng nhập */}
           <Route path="/admin" element={<RequireAdminAuth />}>
             <Route path="managementHome" element={<ManagementHomePage />} />
-            {/* Thêm các route admin khác ở đây */}
+            <Route path="managementAbout" element={<ManagementAboutPage />} />
           </Route>
         </Routes>
       </div>

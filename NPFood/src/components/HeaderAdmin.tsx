@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 
 const adminLinks = [
     { to: '/admin/managementHome', label: 'Home' },
-    { to: '/admin/manageMenProducts', label: 'Product' },
-    { to: '/admin/manageMenNews', label: 'News' },
-    { to: '/admin/manageMenAbout', label: 'About' },
-    { to: '/admin/manageMenContact', label: 'Contact' },
+    { to: '/admin/managementProducts', label: 'Product' },
+    { to: '/admin/managementNews', label: 'News' },
+    { to: '/admin/managementAbout', label: 'About' },
+    { to: '/admin/managementContact', label: 'Contact' },
 ];
 
 const HeaderAdmin: React.FC = () => {
