@@ -16,6 +16,23 @@ const categories = [
 ];
 
 const ManagementProductsPage: React.FC = () => {
+  // State cho modal thêm sản phẩm
+  const [addModalOpen, setAddModalOpen] = useState(false);
+  const [addValues, setAddValues] = useState<any>({
+    id: '',
+    name: '',
+    category: '',
+    price: '',
+    mainImage: '',
+    images: [],
+    isBest: false,
+    description: '',
+    ingredients: '',
+    taste: '',
+    instructions: [],
+  });
+  const [addLoading, setAddLoading] = useState(false);
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Tất cả");
 
@@ -37,7 +54,49 @@ const ManagementProductsPage: React.FC = () => {
 
   // Handler các thao tác (chỉ alert demo)
   const handleAdd = () => {
-    alert("Chức năng thêm sản phẩm (demo, cần tích hợp API)");
+    setAddValues({
+      id: '',
+      name: '',
+      category: '',
+      price: '',
+      mainImage: '',
+      images: [],
+      isBest: false,
+      description: '',
+      ingredients: '',
+      taste: '',
+      instructions: [],
+    });
+    setAddModalOpen(true);
+  };
+  const handleAddChange = (field: string, value: any) => {
+    setAddValues((prev: any) => ({ ...prev, [field]: value }));
+  };
+  const handleAddImageChange = (i: number, url: string) => {
+    setAddValues((prev: any) => {
+      const newImages = [...(prev.images || [])];
+      newImages[i] = url;
+      return { ...prev, images: newImages };
+    });
+  };
+  const handleAddImageDelete = (i: number) => {
+    setAddValues((prev: any) => {
+      const newImages = [...(prev.images || [])];
+      newImages.splice(i, 1);
+      return { ...prev, images: newImages };
+    });
+  };
+  const handleAddMainImage = (url: string) => {
+    setAddValues((prev: any) => ({ ...prev, mainImage: url }));
+  };
+  const handleAddSubmit = () => {
+    setAddLoading(true);
+        const autoId = 'sp-' + Date.now();
+        setTimeout(() => {
+          setAddModalOpen(false);
+          setAddLoading(false);
+          message.success(`Thêm sản phẩm thành công (ID: ${autoId}) (demo)`);
+        }, 800);
   };
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product & { stt?: number } | null>(null);
@@ -58,7 +117,8 @@ const ManagementProductsPage: React.FC = () => {
   };
 
   const handleFieldChange = (field: string, value: any) => {
-    setEditValues((prev: any) => ({ ...prev, [field]: value }));
+    setEditValues((prev: any) => ({ ...prev
+        , [field]: value }));
   };
 
   const handleFieldBlur = (field: string) => {
@@ -199,14 +259,107 @@ const ManagementProductsPage: React.FC = () => {
             prefix={<SearchOutlined />}
           />
           <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            size="large"
-            style={{ background: "#77b843", border: "none" }}
-            onClick={handleAdd}
-          >
-            Thêm sản phẩm
-          </Button>
+          type="primary"
+          icon={<PlusOutlined />}
+          size="large"
+          style={{ background: "#77b843", border: "none" }}
+          onClick={handleAdd}
+        >
+          Thêm sản phẩm
+        </Button>
+      {/* Modal thêm sản phẩm */}
+      <Modal
+        open={addModalOpen}
+        onCancel={() => setAddModalOpen(false)}
+        title="Thêm sản phẩm mới"
+        width={600}
+        footer={[
+          <Button key="cancel" onClick={() => setAddModalOpen(false)}>Hủy</Button>,
+          <Button key="add" type="primary" loading={addLoading} onClick={handleAddSubmit} style={{ background: '#77b843', border: 'none' }}>Thêm</Button>
+        ]}
+      >
+        <Descriptions bordered column={1} size="middle">
+          <Descriptions.Item label="ID">
+            <span className="text-gray-400 italic">(Tự động sinh khi thêm)</span>
+          </Descriptions.Item>
+          <Descriptions.Item label="Ảnh đại diện">
+            <div className="flex items-center gap-2">
+              <Image src={addValues.mainImage} alt={addValues.name} width={100} height={100} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />
+              <input
+                type="file"
+                accept="image/*"
+                style={{ display: 'none' }}
+                id="addMainImageUpload"
+                onChange={e => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    const url = URL.createObjectURL(file);
+                    handleAddMainImage(url);
+                  }
+                }}
+              />
+              <Button size="small" onClick={() => document.getElementById('addMainImageUpload')?.click()}>Chọn ảnh</Button>
+              <Button size="small" danger onClick={() => handleAddMainImage('')}>Xóa</Button>
+            </div>
+          </Descriptions.Item>
+          <Descriptions.Item label="Tên sản phẩm">
+            <Input value={addValues.name} onChange={e => handleAddChange('name', e.target.value)} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Danh mục">
+            <Input value={addValues.category} onChange={e => handleAddChange('category', e.target.value)} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Giá">
+            <Input value={addValues.price} onChange={e => handleAddChange('price', e.target.value)} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Thành phần">
+            <Input value={addValues.ingredients} onChange={e => handleAddChange('ingredients', e.target.value)} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Mô tả">
+            <Input.TextArea value={addValues.description} onChange={e => handleAddChange('description', e.target.value)} autoSize={{ minRows: 2, maxRows: 4 }} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Hương vị">
+            <Input value={addValues.taste} onChange={e => handleAddChange('taste', e.target.value)} />
+          </Descriptions.Item>
+          <Descriptions.Item label="Hướng dẫn">
+            <Input.TextArea
+              value={Array.isArray(addValues.instructions) ? addValues.instructions.join('\n') : addValues.instructions}
+              onChange={e => handleAddChange('instructions', e.target.value.split(/\r?\n/))}
+              autoSize={{ minRows: 3, maxRows: 8 }}
+            />
+          </Descriptions.Item>
+          <Descriptions.Item label="Hình ảnh">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {(addValues.images || []).map((img: string, i: number) => (
+                <div key={i} className="flex items-center gap-2 mb-1">
+                  <Image src={img} alt={addValues.name + i} width={48} height={48} style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #eee' }} />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    id={`addImageUpload_${i}`}
+                    onChange={e => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const url = URL.createObjectURL(file);
+                        handleAddImageChange(i, url);
+                      }
+                    }}
+                  />
+                  <Button size="small" onClick={() => document.getElementById(`addImageUpload_${i}`)?.click()}>Chọn ảnh</Button>
+                  <Button size="small" danger onClick={() => handleAddImageDelete(i)}>Xóa</Button>
+                </div>
+              ))}
+              <Button size="small" onClick={() => setAddValues((prev: any) => ({ ...prev, images: [...(prev.images || []), ''] }))}>Thêm ảnh</Button>
+            </div>
+          </Descriptions.Item>
+          <Descriptions.Item label="Best?">
+            <div className="flex items-center gap-2">
+              <Switch checked={addValues.isBest} onChange={checked => handleAddChange('isBest', checked)} />
+              <span>{addValues.isBest ? <Tag color="green">Best</Tag> : <Tag color="red">Not Best</Tag>}</span>
+            </div>
+          </Descriptions.Item>
+        </Descriptions>
+      </Modal>
         </div>
         <Table
           columns={columns}
