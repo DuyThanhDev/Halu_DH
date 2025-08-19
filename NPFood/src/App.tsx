@@ -15,6 +15,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import ManagementAboutPage from "./page/admin/managemntAbout/managementAboutPage";
 import ManagementContactPage from "./page/admin/managementContact/managementContactPage";
 import ManagementProductsPage from "./page/admin/managementProducts/managementProductsPage";
+import ManagementNewsPage from "./page/admin/managementNews/managementNewsPage";
 
 
 // Component bảo vệ route admin
@@ -46,6 +47,7 @@ function App() {
             <Route path="managementAbout" element={<ManagementAboutPage />} />
             <Route path="managementContact" element={<ManagementContactPage />} />
             <Route path="managementProducts" element={<ManagementProductsPage />} />
+            <Route path="managementNews" element={<ManagementNewsPage />} />
           </Route>
         </Routes>
       </div>
