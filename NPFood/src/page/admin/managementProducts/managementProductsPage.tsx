@@ -148,9 +148,6 @@ const ManagementProductsPage: React.FC = () => {
       alert("Đã xóa (demo, cần tích hợp API)");
     }
   };
-  const handleView = (product: Product) => {
-    alert(`Xem chi tiết sản phẩm: ${product.name} (demo)`);
-  };
 
   // Cột cho bảng antd
   const columns: TableColumnsType<Product & { stt: number }> = [
