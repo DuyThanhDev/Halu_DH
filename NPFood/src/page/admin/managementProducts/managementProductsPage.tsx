@@ -244,12 +244,13 @@ const ManagementProductsPage: React.FC = () => {
     {
       title: 'Thao tác',
       dataIndex: 'actions',
-      width: 100,
+      width: 140,
       align: 'center',
       render: (_: any, record: Product & { stt: number }) => (
         <div className="flex gap-1 justify-center">
           <Button icon={<EditOutlined />} size="small" onClick={() => handleEdit(record)} title="Chỉnh sửa" style={{ background: '#facc15', color: '#fff', border: 'none' }} />
           <Button icon={<DeleteOutlined />} size="small" danger onClick={() => handleDelete(record)} title="Xóa" />
+          <Button icon={<EyeOutlined />} size="small" onClick={() => alert('Ẩn/Hiện sản phẩm (demo)')} title="Ẩn/Hiện" />
         </div>
       ),
     },

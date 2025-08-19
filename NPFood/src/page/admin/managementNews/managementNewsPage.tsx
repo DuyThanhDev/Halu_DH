@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from "react";
-import { Table, Button, Input, Select, Modal, Tag, message, Tooltip } from "antd";
+import { Table, Button, Input, Select, Modal, Tag, message, Tooltip, Descriptions } from "antd";
 import type { TableColumnsType } from "antd";
 import { newsData, newsCategories } from "../../../data/news";
 import type { NewsItem } from "../../../data/news";
 import HeaderAdmin from "../../../components/HeaderAdmin";
 import Footer from "../../../components/Footer";
-import { PlusOutlined, EditOutlined, DeleteOutlined, SearchOutlined } from "@ant-design/icons";
+import { PlusOutlined, EditOutlined, DeleteOutlined, SearchOutlined, EyeOutlined } from "@ant-design/icons";
 
 const ManagementNewsPage: React.FC = () => {
   const [category, setCategory] = useState<string>("Tất cả");
@@ -73,12 +73,13 @@ const ManagementNewsPage: React.FC = () => {
     {
       title: "Thao tác",
       dataIndex: "actions",
-      width: 120,
+      width: 150,
       align: "center",
       render: (_: any, record) => (
         <div className="flex gap-1 justify-center">
           <Button icon={<EditOutlined />} size="small" onClick={() => handleEdit(record)} title="Sửa" style={{ background: '#facc15', color: '#fff', border: 'none' }} />
           <Button icon={<DeleteOutlined />} size="small" danger onClick={() => handleDelete(record)} title="Xóa" />
+          <Button icon={<EyeOutlined />} size="small" onClick={() => alert('Ẩn/Hiện bài báo (demo)')} title="Ẩn/Hiện" />
         </div>
       ),
     },
@@ -171,68 +172,75 @@ const ManagementNewsPage: React.FC = () => {
           okText={editMode === "add" ? "Thêm" : "Cập nhật"}
           cancelText="Hủy"
         >
-          <div className="flex flex-col gap-3">
-            <Input
-              placeholder="Tiêu đề bài báo"
-              value={editValues.title || ''}
-              onChange={e => setEditValues(v => ({ ...v, title: e.target.value }))}
-            />
-            <Input
-              placeholder="Tóm tắt (excerpt)"
-              value={editValues.excerpt || ''}
-              onChange={e => setEditValues(v => ({ ...v, excerpt: e.target.value }))}
-            />
-            <Input.TextArea
-              placeholder="Nội dung bài báo"
-              value={editValues.content || ''}
-              onChange={e => setEditValues(v => ({ ...v, content: e.target.value }))}
-              autoSize={{ minRows: 4, maxRows: 10 }}
-            />
-            <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-              {editValues.image ? (
-                <img
-                  src={editValues.image}
-                  alt="Ảnh bài báo"
-                  className="w-24 h-24 object-cover rounded border bg-gray-100"
-                />
-              ) : (
-                <div className="w-24 h-24 flex items-center justify-center bg-gray-100 border rounded text-gray-400 text-xs">No image</div>
-              )}
-              <div className="flex gap-2 mt-2 xs:mt-0">
-                <input
-                  type="file"
-                  accept="image/*"
-                  style={{ display: 'none' }}
-                  id="newsImageUpload"
-                  onChange={e => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      const url = URL.createObjectURL(file);
-                      setEditValues(v => ({ ...v, image: url }));
-                    }
-                  }}
-                />
-                <Button size="small" onClick={() => document.getElementById('newsImageUpload')?.click()}>Chọn ảnh</Button>
-                <Button size="small" danger onClick={() => setEditValues(v => ({ ...v, image: '' }))}>Xóa</Button>
+          <Descriptions
+            bordered
+            column={1}
+            size="middle"
+            className="w-full text-xs md:text-base"
+            labelStyle={{
+              fontSize: 14,
+              color: '#9ca3af',
+              fontWeight: 400,
+              minWidth: 90,
+              width: 90,
+              textAlign: 'left',
+              lineHeight: '18px',
+              paddingRight: 8
+            }}
+          >
+            <Descriptions.Item label="Tiêu đề bài báo">
+              <Input value={editValues.title || ''} onChange={e => setEditValues(v => ({ ...v, title: e.target.value }))} />
+            </Descriptions.Item>
+            <Descriptions.Item label="Tóm tắt (excerpt)">
+              <Input value={editValues.excerpt || ''} onChange={e => setEditValues(v => ({ ...v, excerpt: e.target.value }))} />
+            </Descriptions.Item>
+            <Descriptions.Item label="Nội dung bài báo">
+              <Input.TextArea value={editValues.content || ''} onChange={e => setEditValues(v => ({ ...v, content: e.target.value }))} autoSize={{ minRows: 4, maxRows: 10 }} />
+            </Descriptions.Item>
+            <Descriptions.Item label="Ảnh bài báo">
+              <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
+                {editValues.image ? (
+                  <img
+                    src={editValues.image}
+                    alt="Ảnh bài báo"
+                    className="w-24 h-24 object-cover rounded border bg-gray-100"
+                  />
+                ) : (
+                  <div className="w-24 h-24 flex items-center justify-center bg-gray-100 border rounded text-gray-400 text-xs">No image</div>
+                )}
+                <div className="flex gap-2 mt-2 xs:mt-0">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    id="newsImageUpload"
+                    onChange={e => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const url = URL.createObjectURL(file);
+                        setEditValues(v => ({ ...v, image: url }));
+                      }
+                    }}
+                  />
+                  <Button size="small" onClick={() => document.getElementById('newsImageUpload')?.click()}>Chọn ảnh</Button>
+                  <Button size="small" danger onClick={() => setEditValues(v => ({ ...v, image: '' }))}>Xóa</Button>
+                </div>
               </div>
-            </div>
-            <Input
-              placeholder="Ngày đăng (dd/mm/yyyy)"
-              value={editValues.date || ''}
-              onChange={e => setEditValues(v => ({ ...v, date: e.target.value }))}
-            />
-            <Select
-              placeholder="Danh mục"
-              value={editValues.category || newsCategories[1]}
-              onChange={val => setEditValues(v => ({ ...v, category: val }))}
-              options={newsCategories.filter(c => c !== "Tất cả").map(c => ({ value: c, label: c }))}
-            />
-            <Input
-              placeholder="Tác giả"
-              value={editValues.author || ''}
-              onChange={e => setEditValues(v => ({ ...v, author: e.target.value }))}
-            />
-          </div>
+            </Descriptions.Item>
+            <Descriptions.Item label="Ngày đăng (dd/mm/yyyy)">
+              <Input value={editValues.date || ''} onChange={e => setEditValues(v => ({ ...v, date: e.target.value }))} />
+            </Descriptions.Item>
+            <Descriptions.Item label="Danh mục">
+              <Select
+                value={editValues.category || newsCategories[1]}
+                onChange={val => setEditValues(v => ({ ...v, category: val }))}
+                options={newsCategories.filter(c => c !== "Tất cả").map(c => ({ value: c, label: c }))}
+              />
+            </Descriptions.Item>
+            <Descriptions.Item label="Tác giả">
+              <Input value={editValues.author || ''} onChange={e => setEditValues(v => ({ ...v, author: e.target.value }))} />
+            </Descriptions.Item>
+          </Descriptions>
         </Modal>
       </div>
       <Footer />
