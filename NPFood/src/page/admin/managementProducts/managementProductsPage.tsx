@@ -157,8 +157,14 @@ const ManagementProductsPage: React.FC = () => {
     {
       title: 'STT',
       dataIndex: 'stt',
-      width: 30,
+      width: 40,
       align: 'center',
+      className: 'text-xs sm:text-sm font-semibold',
+      render: (stt: number) => (
+        <span className="block w-6 sm:w-8 text-center mx-auto text-xs sm:text-sm font-semibold text-gray-700 bg-gray-100 rounded">
+          {stt}
+        </span>
+      ),
     },
     {
       title: 'ID',
@@ -172,7 +178,19 @@ const ManagementProductsPage: React.FC = () => {
       dataIndex: 'mainImage',
       width: 60,
       align: 'center',
-      render: (img: string, record) => <Image src={img} alt={record.name} width={64} height={64} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />,
+      render: (img: string, record) => (
+        <div className="flex justify-center items-center max-w-xs mx-auto">
+          <Image
+            src={img}
+            alt={record.name}
+            width={48}
+            height={48}
+            className="w-10 h-10 sm:w-16 sm:h-16 object-cover rounded-md bg-gray-100"
+            style={{ objectFit: 'cover', background: '#f3f6f9', borderRadius: 8 }}
+            preview={false}
+          />
+        </div>
+      ),
     },
     {
       title: 'Tên sản phẩm',
@@ -242,7 +260,7 @@ const ManagementProductsPage: React.FC = () => {
       <HeaderAdmin />
       <div className="container mx-auto px-2 sm:px-4 md:px-6 py-6 min-h-screen bg-gray-50">
         <h1 className="text-3xl md:text-4xl font-extrabold text-[#77b843] mb-4 text-center">QUẢN LÝ SẢN PHẨM</h1>
-        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4">
+        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4 w-full">
           <Select
             className="w-full md:w-56"
             value={category}
@@ -251,7 +269,7 @@ const ManagementProductsPage: React.FC = () => {
             size="large"
           />
           <Input
-            className="w-full"
+            className="w-full md:flex-1"
             size="large"
             placeholder="Tìm kiếm theo tên, mô tả..."
             value={search}
@@ -259,47 +277,52 @@ const ManagementProductsPage: React.FC = () => {
             prefix={<SearchOutlined />}
           />
           <Button
-          type="primary"
-          icon={<PlusOutlined />}
-          size="large"
-          style={{ background: "#77b843", border: "none" }}
-          onClick={handleAdd}
-        >
-          Thêm sản phẩm
-        </Button>
+            type="primary"
+            icon={<PlusOutlined />}
+            size="large"
+            className="w-full md:w-auto"
+            style={{ background: "#77b843", border: "none" }}
+            onClick={handleAdd}
+          >
+            Thêm sản phẩm
+          </Button>
       {/* Modal thêm sản phẩm */}
       <Modal
         open={addModalOpen}
         onCancel={() => setAddModalOpen(false)}
-        title="Thêm sản phẩm mới"
-        width={600}
+        title={<span className="text-base md:text-lg">Thêm sản phẩm mới</span>}
+        width={window.innerWidth < 500 ? '98vw' : 600}
+        className="max-w-full"
+        bodyStyle={{ padding: window.innerWidth < 500 ? 8 : 24 }}
         footer={[
-          <Button key="cancel" onClick={() => setAddModalOpen(false)}>Hủy</Button>,
-          <Button key="add" type="primary" loading={addLoading} onClick={handleAddSubmit} style={{ background: '#77b843', border: 'none' }}>Thêm</Button>
+          <Button key="cancel" onClick={() => setAddModalOpen(false)} className="w-full md:w-auto">Hủy</Button>,
+          <Button key="add" type="primary" loading={addLoading} onClick={handleAddSubmit} style={{ background: '#77b843', border: 'none' }} className="w-full md:w-auto">Thêm</Button>
         ]}
       >
-        <Descriptions bordered column={1} size="middle">
+        <Descriptions bordered column={1} size="middle" className="w-full text-xs md:text-base">
           <Descriptions.Item label="ID">
             <span className="text-gray-400 italic">(Tự động sinh khi thêm)</span>
           </Descriptions.Item>
           <Descriptions.Item label="Ảnh đại diện">
-            <div className="flex items-center gap-2">
-              <Image src={addValues.mainImage} alt={addValues.name} width={100} height={100} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />
-              <input
-                type="file"
-                accept="image/*"
-                style={{ display: 'none' }}
-                id="addMainImageUpload"
-                onChange={e => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    const url = URL.createObjectURL(file);
-                    handleAddMainImage(url);
-                  }
-                }}
-              />
-              <Button size="small" onClick={() => document.getElementById('addMainImageUpload')?.click()}>Chọn ảnh</Button>
-              <Button size="small" danger onClick={() => handleAddMainImage('')}>Xóa</Button>
+            <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
+              <Image src={addValues.mainImage} alt={addValues.name} width={window.innerWidth < 500 ? 64 : 100} height={window.innerWidth < 500 ? 64 : 100} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />
+              <div className="flex gap-2">
+                <input
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  id="addMainImageUpload"
+                  onChange={e => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const url = URL.createObjectURL(file);
+                      handleAddMainImage(url);
+                    }
+                  }}
+                />
+                <Button size="small" onClick={() => document.getElementById('addMainImageUpload')?.click()}>Chọn ảnh</Button>
+                <Button size="small" danger onClick={() => handleAddMainImage('')}>Xóa</Button>
+              </div>
             </div>
           </Descriptions.Item>
           <Descriptions.Item label="Tên sản phẩm">
@@ -328,28 +351,30 @@ const ManagementProductsPage: React.FC = () => {
             />
           </Descriptions.Item>
           <Descriptions.Item label="Hình ảnh">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="flex flex-col gap-2 w-full">
               {(addValues.images || []).map((img: string, i: number) => (
-                <div key={i} className="flex items-center gap-2 mb-1">
-                  <Image src={img} alt={addValues.name + i} width={48} height={48} style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #eee' }} />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style={{ display: 'none' }}
-                    id={`addImageUpload_${i}`}
-                    onChange={e => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        const url = URL.createObjectURL(file);
-                        handleAddImageChange(i, url);
-                      }
-                    }}
-                  />
-                  <Button size="small" onClick={() => document.getElementById(`addImageUpload_${i}`)?.click()}>Chọn ảnh</Button>
-                  <Button size="small" danger onClick={() => handleAddImageDelete(i)}>Xóa</Button>
+                <div key={i} className="flex flex-col xs:flex-row items-start xs:items-center gap-2 mb-1 w-full">
+                  <Image src={img} alt={addValues.name + i} width={window.innerWidth < 500 ? 40 : 48} height={window.innerWidth < 500 ? 40 : 48} style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #eee' }} />
+                  <div className="flex gap-2">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      style={{ display: 'none' }}
+                      id={`addImageUpload_${i}`}
+                      onChange={e => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const url = URL.createObjectURL(file);
+                          handleAddImageChange(i, url);
+                        }
+                      }}
+                    />
+                    <Button size="small" onClick={() => document.getElementById(`addImageUpload_${i}`)?.click()}>Chọn ảnh</Button>
+                    <Button size="small" danger onClick={() => handleAddImageDelete(i)}>Xóa</Button>
+                  </div>
                 </div>
               ))}
-              <Button size="small" onClick={() => setAddValues((prev: any) => ({ ...prev, images: [...(prev.images || []), ''] }))}>Thêm ảnh</Button>
+              <Button size="small" className="w-full md:w-auto" onClick={() => setAddValues((prev: any) => ({ ...prev, images: [...(prev.images || []), ''] }))}>Thêm ảnh</Button>
             </div>
           </Descriptions.Item>
           <Descriptions.Item label="Best?">
@@ -361,48 +386,56 @@ const ManagementProductsPage: React.FC = () => {
         </Descriptions>
       </Modal>
         </div>
-        <Table
-          columns={columns}
-          dataSource={filteredProducts}
-          rowKey="id"
-          bordered
-          pagination={{ pageSize: 10, showSizeChanger: true, pageSizeOptions: [5, 10, 20, 50] }}
-          onChange={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        />
+        <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 rounded-lg">
+          <Table
+            columns={columns}
+            dataSource={filteredProducts}
+            rowKey="id"
+            bordered
+            pagination={{ pageSize: 10, showSizeChanger: true, pageSizeOptions: [5, 10, 20, 50] }}
+            onChange={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="min-w-[600px] sm:min-w-[800px] text-xs sm:text-sm align-middle"
+            size={window.innerWidth < 640 ? 'small' : 'middle'}
+          />
+        </div>
         {/* Modal chi tiết sản phẩm */}
-        <Modal
-          open={modalOpen}
-          onCancel={handleCancel}
-          title={selectedProduct ? `Chi tiết sản phẩm: ${selectedProduct.name}` : ''}
-          width={600}
-          footer={[
-            <Button key="cancel" onClick={handleCancel}>Hủy</Button>,
-            <Button key="update" type="primary" loading={loading} onClick={handleUpdate} style={{ background: '#77b843', border: 'none' }}>Cập nhật</Button>
-          ]}
-        >
-          {selectedProduct && (
-            <Descriptions bordered column={1} size="middle">
+      <Modal
+        open={modalOpen}
+        onCancel={handleCancel}
+        title={<span className="text-base md:text-lg">{selectedProduct ? `Chi tiết sản phẩm: ${selectedProduct.name}` : ''}</span>}
+        width={window.innerWidth < 500 ? '98vw' : 600}
+        className="max-w-full"
+        bodyStyle={{ padding: window.innerWidth < 500 ? 8 : 24 }}
+        footer={[
+          <Button key="cancel" onClick={handleCancel} className="w-full md:w-auto">Hủy</Button>,
+          <Button key="update" type="primary" loading={loading} onClick={handleUpdate} style={{ background: '#77b843', border: 'none' }} className="w-full md:w-auto">Cập nhật</Button>
+        ]}
+      >
+        {selectedProduct && (
+          <Descriptions bordered column={1} size="middle" className="w-full text-xs md:text-base">
               <Descriptions.Item label="ID">{selectedProduct.id}</Descriptions.Item>
               <Descriptions.Item label="Ảnh đại diện">
-                <div className="flex items-center gap-2">
-                  <Image src={editValues.mainImage ?? selectedProduct.mainImage} alt={selectedProduct.name} width={100} height={100} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style={{ display: 'none' }}
-                    id="mainImageUpload"
-                    onChange={e => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        const url = URL.createObjectURL(file);
-                        handleFieldChange('mainImage', url);
-                      }
-                    }}
-                  />
-                  <Button size="small" onClick={() => document.getElementById('mainImageUpload')?.click()}>Chọn ảnh</Button>
-                  <Button size="small" danger onClick={() => handleFieldChange('mainImage', '')}>Xóa</Button>
+                <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
+                  <Image src={editValues.mainImage ?? selectedProduct.mainImage} alt={selectedProduct.name} width={window.innerWidth < 500 ? 64 : 100} height={window.innerWidth < 500 ? 64 : 100} style={{ objectFit: 'contain', background: '#f3f6f9', borderRadius: 8 }} />
+                  <div className="flex gap-2">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      style={{ display: 'none' }}
+                      id="mainImageUpload"
+                      onChange={e => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const url = URL.createObjectURL(file);
+                          handleFieldChange('mainImage', url);
+                        }
+                      }}
+                    />
+                    <Button size="small" onClick={() => document.getElementById('mainImageUpload')?.click()}>Chọn ảnh</Button>
+                    <Button size="small" danger onClick={() => handleFieldChange('mainImage', '')}>Xóa</Button>
+                  </div>
                 </div>
               </Descriptions.Item>
               <Descriptions.Item label="Tên sản phẩm">
@@ -503,31 +536,33 @@ const ManagementProductsPage: React.FC = () => {
               )}
               {selectedProduct.images && selectedProduct.images.length > 0 && (
                 <Descriptions.Item label="Hình ảnh">
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <div className="flex flex-col gap-2 w-full">
                     {(editValues.images ?? selectedProduct.images).map((img: string, i: number) => (
-                      <div key={i} className="flex items-center gap-2 mb-1">
-                        <Image src={img} alt={selectedProduct.name + i} width={48} height={48} style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #eee' }} />
-                        <input
-                          type="file"
-                          accept="image/*"
-                          style={{ display: 'none' }}
-                          id={`imageUpload_${i}`}
-                          onChange={e => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              const url = URL.createObjectURL(file);
-                              const newImages = [...(editValues.images ?? selectedProduct.images)];
-                              newImages[i] = url;
-                              handleFieldChange('images', newImages);
-                            }
-                          }}
-                        />
-                        <Button size="small" onClick={() => document.getElementById(`imageUpload_${i}`)?.click()}>Chọn ảnh</Button>
-                        <Button size="small" danger onClick={() => {
-                          const newImages = [...(editValues.images ?? selectedProduct.images)];
-                          newImages.splice(i, 1);
-                          handleFieldChange('images', newImages);
-                        }}>Xóa</Button>
+                      <div key={i} className="flex flex-col xs:flex-row items-start xs:items-center gap-2 mb-1 w-full">
+                        <Image src={img} alt={selectedProduct.name + i} width={window.innerWidth < 500 ? 40 : 48} height={window.innerWidth < 500 ? 40 : 48} style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #eee' }} />
+                        <div className="flex gap-2">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            id={`imageUpload_${i}`}
+                            onChange={e => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                const url = URL.createObjectURL(file);
+                                const newImages = [...(editValues.images ?? selectedProduct.images)];
+                                newImages[i] = url;
+                                handleFieldChange('images', newImages);
+                              }
+                            }}
+                          />
+                          <Button size="small" onClick={() => document.getElementById(`imageUpload_${i}`)?.click()}>Chọn ảnh</Button>
+                          <Button size="small" danger onClick={() => {
+                            const newImages = [...(editValues.images ?? selectedProduct.images)];
+                            newImages.splice(i, 1);
+                            handleFieldChange('images', newImages);
+                          }}>Xóa</Button>
+                        </div>
                       </div>
                     ))}
                   </div>
